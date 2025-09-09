@@ -1,0 +1,319 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #0a0a0a; /* A very dark grey */
+    --secondary-color: #f4f4f4; /* A light grey for text */
+    --accent-color: #4a90e2; /* A nice blue for highlights */
+    --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --container-width: 80%;
+    --section-padding: 4rem 0;
+}
+
+/* --- Basic Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents horizontal scrollbar during animations */
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #fff;
+}
+
+/* This is your standard container for content within sections */
+.container {
+    width: var(--container-width);
+    margin: 0 auto;
+}
+
+/* --- Vanta.js Background and Content Positioning --- */
+/* Each section now needs to be a relative positioning context */
+#home, #about, #skills, #projects, #contact {
+    position: relative;
+    padding: var(--section-padding) 0; /* Apply padding here for consistent height */
+    min-height: 500px; /* Ensure enough height for backgrounds to be visible */
+    overflow: hidden; /* Important for Vanta.js canvas */
+}
+
+/* The Vanta background container will fill the entire section */
+.vanta-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Ensure it stays behind the content */
+}
+
+/* The actual content (text, cards, etc.) will sit on top */
+.section-content {
+    position: relative;
+    z-index: 1; /* Bring content to the front */
+    height: 100%; /* Ensure content respects section height */
+    display: flex; /* Helps with centering in hero, and generally good practice */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* For sections that use `.container` inside `section-content`, the `.container` will manage its width */
+}
+
+/* The hero section needs specific height for the background to show properly */
+.hero {
+    height: 100vh;
+}
+.hero-text {
+    width: 100%; /* Hero text should take full width to center effectively */
+}
+
+
+/* --- Navigation Bar --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10%;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+/* --- Hero Section --- */
+/* We moved most hero styling to #home and .section-content */
+.hero-text h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    color: var(--accent-color);
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+
+/* --- Projects Section --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card h3,
+.project-card p,
+.project-card .project-links {
+    padding: 0 1.5rem;
+}
+
+.project-card h3 {
+    margin-top: 1rem;
+    color: var(--accent-color);
+}
+
+.project-links {
+    padding-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
+.project-links a {
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+/* --- Contact Section --- */
+#contact .section-content { /* Target content specifically */
+    text-align: center;
+}
+
+.contact-links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid #2a2a2a;
+    color: #888;
+}
+
+/* --- Skills Section --- */
+/* The skills section itself no longer has a background color */
+/* The background color is now on .skills-grid for content */
+.skills-section .skills-grid { /* Target .skills-grid inside .skills-section */
+    background-color: #1a1a1a; /* Background for the content */
+    padding: 2rem;
+    border-radius: 8px;
+    width: var(--container-width); /* Match container width */
+    margin: 0 auto; /* Center it */
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category h3 {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-category p {
+    color: #b0b0b0;
+}
+
+/* --- Responsive Design / Media Queries --- */
+
+/* For Tablets and smaller desktops (up to 768px) */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 3rem; /* Make the main title smaller */
+    }
+
+    h2 {
+        font-size: 2rem; /* Make section titles smaller */
+    }
+
+    .container {
+        width: 90%; /* Use more of the screen width */
+    }
+
+    nav {
+        padding: 1rem 5%; /* Reduce padding on the nav bar */
+    }
+    
+    .skills-section .skills-grid {
+        width: 90%; /* Adjust width for skills grid on smaller screens */
+    }
+}
+
+
+/* For Mobile Phones (up to 480px) */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column; /* Stack the logo and links vertically */
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        margin-top: 1rem; /* Add some space below the logo */
+        gap: 1.5rem;
+    }
+    
+    .hero {
+        height: 80vh; /* Reduce height of hero section on small screens */
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem; /* Make the main title even smaller */
+    }
+
+    .hero-text p {
+        font-size: 1rem; /* Adjust the subtitle font size */
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr; /* Stack projects in a single column */
+    }
+    
+    .contact-links {
+        flex-direction: column; /* Stack contact buttons vertically */
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .btn {
+        width: 80%; /* Make buttons wider for easier tapping */
+        text-align: center;
+    }
+
+    .skills-section .skills-grid {
+        width: 90%; /* Adjust width for skills grid on mobile */
+        padding: 1.5rem;
+    }
+}
