@@ -74,12 +74,14 @@ a:hover {
 /* --- Vanta.js Background and Content Positioning --- */
 /* Each section now needs to be a relative positioning context */
 
+
 #main-vanta-bg {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     z-index: 0;
     pointer-events: none;
 }
@@ -87,6 +89,15 @@ a:hover {
 .main-sections {
     position: relative;
     z-index: 1;
+}
+
+body, html {
+    height: 100%;
+}
+
+main {
+    position: relative;
+    min-height: 100vh;
 }
 
 #home, #about, #skills {

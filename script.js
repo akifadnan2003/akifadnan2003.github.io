@@ -1,5 +1,15 @@
 // Wait for the DOM to be fully loaded before initializing scripts
 document.addEventListener('DOMContentLoaded', () => {
+    // Dynamically set the height of the Vanta background to match main content
+    function resizeVantaBg() {
+        const mainBg = document.getElementById('main-vanta-bg');
+        const mainSections = document.querySelector('.main-sections');
+        if (mainBg && mainSections) {
+            mainBg.style.height = mainSections.offsetHeight + 'px';
+        }
+    }
+    resizeVantaBg();
+    window.addEventListener('resize', resizeVantaBg);
 
     // --- INITIALIZE Splitting.js ---
     Splitting();
