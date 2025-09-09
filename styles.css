@@ -1,3 +1,19 @@
+/* Typewriter animation styles */
+.typewriter-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+}
+
+#typewriter {
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: #4a90e2;
+    border-right: 2px solid #4a90e2;
+    padding-right: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+}
 /* --- Global Styles & Variables --- */
 :root {
     --primary-color: #0a0a0a; /* A very dark grey */
@@ -48,6 +64,7 @@ a:hover {
     color: #fff;
 }
 
+
 /* This is your standard container for content within sections */
 .container {
     width: var(--container-width);
@@ -56,34 +73,50 @@ a:hover {
 
 /* --- Vanta.js Background and Content Positioning --- */
 /* Each section now needs to be a relative positioning context */
-#home, #about, #skills, #projects, #contact {
-    position: relative;
-    padding: var(--section-padding) 0; /* Apply padding here for consistent height */
-    min-height: 500px; /* Ensure enough height for backgrounds to be visible */
-    overflow: hidden; /* Important for Vanta.js canvas */
-}
 
-/* The Vanta background container will fill the entire section */
-.vanta-bg-container {
-    position: absolute;
+#main-vanta-bg {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0; /* Ensure it stays behind the content */
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.main-sections {
+    position: relative;
+    z-index: 1;
+}
+
+#home, #about, #skills {
+    position: relative;
+    padding: var(--section-padding) 0;
+    min-height: 500px;
+    overflow: visible;
 }
 
 /* The actual content (text, cards, etc.) will sit on top */
+
 .section-content {
     position: relative;
-    z-index: 1; /* Bring content to the front */
-    height: 100%; /* Ensure content respects section height */
-    display: flex; /* Helps with centering in hero, and generally good practice */
+    z-index: 1;
+    height: 100%;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* For sections that use `.container` inside `section-content`, the `.container` will manage its width */
+}
+
+.about-box {
+    background: rgba(20, 20, 30, 0.85);
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+    padding: 2.5rem 2rem;
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 /* The hero section needs specific height for the background to show properly */
@@ -120,6 +153,37 @@ nav {
     display: flex;
     gap: 2rem;
 }
+
+/* NEW STYLES FOR CATCHY LINKS */
+.nav-links a {
+    position: relative; /* Required for the underline pseudo-element */
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0); /* Start with the underline hidden */
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out; /* Animation for the underline */
+}
+
+.nav-links a:hover {
+    color: #fff; /* Keep the color change on hover */
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1); /* Expand the underline on hover */
+    transform-origin: bottom left;
+}
+
 
 /* --- Hero Section --- */
 /* We moved most hero styling to #home and .section-content */
@@ -317,3 +381,4 @@ footer {
         padding: 1.5rem;
     }
 }
+

@@ -1,9 +1,11 @@
 // Wait for the DOM to be fully loaded before initializing scripts
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. HOME SECTION: VANTA.NET ---
+
+
+    // --- Unified VANTA.NET Background for Home, About, Skills ---
     VANTA.NET({
-      el: "#home-vanta-bg",
+      el: "#main-vanta-bg",
       mouseControls: true,
       touchControls: true,
       gyroControls: false,
@@ -16,37 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
       points: 12.00,
       maxDistance: 25.00,
       spacing: 18.00
-    });
-
-    // --- 2. ABOUT SECTION: VANTA.RINGS --- (NEW EFFECT FOR CONSISTENCY)
-    VANTA.RINGS({
-      el: "#about-vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      backgroundColor: 0x0a0a0a, // Your dark background
-      color: 0x4a90e2        // Your blue accent color
-    });
-    
-    // --- 3. SKILLS SECTION: VANTA.WAVES ---
-    VANTA.WAVES({
-      el: "#skills-vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color: 0x1c3d5e,
-      shininess: 25.00,
-      waveHeight: 15.00,
-      waveSpeed: 0.5,
-      zoom: 0.85
     });
 
     // --- 4. PROJECTS SECTION: VANTA.GLOBE ---
@@ -66,5 +37,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- INITIALIZE AOS (Animate On Scroll) ---
     AOS.init();
+    // Typewriter animation for "Hi I'm Akif Adnan"
+    setTimeout(() => {
+      const typewriterText = "Hi I'm Akif Adnan";
+      const typewriterSpeed = 100; // ms per character
+      let typewriterIndex = 0;
+      const typewriterTarget = document.getElementById("typewriter");
+      if (!typewriterTarget) {
+        console.error('Typewriter element not found!');
+        return;
+      }
+      typewriterTarget.textContent = "";
+      function typeWriter() {
+        if (typewriterIndex < typewriterText.length) {
+          typewriterTarget.textContent += typewriterText.charAt(typewriterIndex);
+          typewriterIndex++;
+          setTimeout(typeWriter, typewriterSpeed);
+        }
+      }
+      typeWriter();
+    }, 200);
 
 });
