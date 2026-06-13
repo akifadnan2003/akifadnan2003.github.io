@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetProbe | Akif Adnan</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .detail-hero {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        .detail-hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .detail-hero .subtitle { color: #b0b0b0; font-size: 1.1rem; margin-bottom: 2rem; }
+        .tag {
+            display: inline-block;
+            background: rgba(74,144,226,0.15);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+        .detail-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+        .detail-section h2 {
+            text-align: left;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+        .detail-section p { color: #c0c0c0; line-height: 1.8; margin-bottom: 1rem; }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .feature-card {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 3px solid var(--accent-color);
+        }
+        .feature-card h4 { color: var(--accent-color); margin-bottom: 0.5rem; }
+        .feature-card p { color: #b0b0b0; font-size: 0.9rem; margin: 0; }
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        .result-table th, .result-table td {
+            border: 1px solid #2a2a2a;
+            padding: 0.75rem 1rem;
+            text-align: center;
+        }
+        .result-table th { background: #1a1a1a; color: var(--accent-color); }
+        .result-table td { color: #c0c0c0; }
+        .result-table tr:hover td { background: rgba(74,144,226,0.05); }
+        .chart-img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+            display: block;
+            margin: 1.5rem auto;
+            border: 1px solid #2a2a2a;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 2rem 5%;
+            display: block;
+        }
+        .back-link:hover { color: #fff; }
+        .arch-box {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            overflow-x: auto;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="Akif Adnan Logo" style="height:60px;vertical-align:middle;" />
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>NetProbe</h1>
+            <p class="subtitle">UDP-Based Reliable File Transfer &amp; Network Performance Analysis Platform</p>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">UDP Sockets</span>
+                <span class="tag">Custom Protocol</span>
+                <span class="tag">Flask</span>
+                <span class="tag">Matplotlib</span>
+                <span class="tag">Encryption</span>
+                <span class="tag">PCAP</span>
+            </div>
+            <div style="margin-top:1.5rem;">
+                <a href="https://github.com/akifadnan2003/Net-Probe" target="_blank" class="btn" style="margin-right:1rem;">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <div class="detail-section">
+            <h2>Overview</h2>
+            <p>
+                NetProbe implements a fully reliable file-transfer protocol built on top of raw UDP sockets — no TCP, no ready-made libraries.
+                All reliability mechanisms (sequence numbers, ACKs, timeouts, retransmission, duplicate detection, and MD5 integrity checking) are
+                engineered entirely at the application layer.
+            </p>
+            <p>
+                A dedicated logging and analysis module records every network event and produces performance graphs.
+                The project includes a Flask web dashboard for real-time monitoring and several bonus features:
+                encryption, compression, PCAP export, multi-client support, and TCP vs UDP benchmarking.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Custom Protocol Design</h2>
+            <p>Four packet types form the protocol state machine:</p>
+            <div class="arch-box">Packet Formats (all big-endian):
+  DATA    : type(1B) | seq(4B) | total(4B) | payload_len(2B) | crc32(4B) | payload
+  ACK     : type(1B) | ack_num(4B) | crc32(4B)
+  FIN     : type(1B) | crc32(4B) | md5_hex(32B ASCII)
+  FIN_ACK : type(1B) | status(1B)   (1=OK / 0=FAIL)</div>
+            <p style="margin-top:1rem;">
+                CRC32 checksums on every packet detect in-transit corruption.
+                The FIN packet carries an MD5 hash of the full file; the server sends FIN_ACK with a pass/fail status after verifying integrity.
+                Stop-and-wait ARQ with configurable retransmission ensures no packet is silently lost.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Reliable Transfer over UDP</h4>
+                    <p>Stop-and-wait ARQ with sequence numbers, ACKs, configurable timeouts, and up to 5 retries. Duplicate detection prevents double-writing.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>File Integrity</h4>
+                    <p>CRC32 per-packet checksums and MD5 end-to-end hash verification. Server rejects the file if the hash doesn't match.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Encryption &amp; Compression</h4>
+                    <p>XOR-based encryption and zlib compression applied before transmission. Configurable per-transfer via CLI flags.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Multi-Client Server</h4>
+                    <p>Concurrent transfers from multiple clients handled via threading. Each client gets an isolated receive buffer and log file.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>PCAP Export</h4>
+                    <p>All packets are written to a Wireshark-compatible .pcap file for offline inspection and debugging.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Web Dashboard</h4>
+                    <p>Flask app with Server-Sent Events for real-time transfer progress. Upload files, start/stop server, and view graphs — all from the browser.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>TCP vs UDP Comparison</h2>
+            <p>
+                A dedicated benchmarking module runs the same file transfers over both TCP and the custom UDP protocol,
+                measuring throughput, transfer time, and retransmission overhead across file sizes from 32 KB to 5 MB.
+            </p>
+            <img src="tcp_vs_udp_comparison.png" alt="TCP vs UDP Comparison Chart" class="chart-img">
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>File Size</th>
+                        <th>UDP Transfer Time</th>
+                        <th>TCP Transfer Time</th>
+                        <th>Observation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>32 KB</td><td>~0.02s</td><td>~0.01s</td><td>TCP faster for tiny files</td></tr>
+                    <tr><td>256 KB</td><td>~0.08s</td><td>~0.09s</td><td>Comparable</td></tr>
+                    <tr><td>1 MB</td><td>~0.30s</td><td>~0.32s</td><td>UDP competitive</td></tr>
+                    <tr><td>5 MB</td><td>~1.4s</td><td>~1.5s</td><td>UDP faster with no congestion</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section">
+            <h2>Experiment Scenarios</h2>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Scenario</th><th>Description</th><th>Variable</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Varying file sizes (no loss)</td><td>32 KB → 5 MB</td></tr>
+                    <tr><td>2</td><td>Varying packet loss rate</td><td>0% → 20% simulated loss</td></tr>
+                    <tr><td>3</td><td>Varying chunk sizes</td><td>256 B → 4096 B</td></tr>
+                    <tr><td>4</td><td>Multi-client load test</td><td>1 → 4 concurrent clients</td></tr>
+                    <tr><td>Bonus</td><td>Sliding window throughput</td><td>Window size 1 → 8</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="https://github.com/akifadnan2003/Net-Probe" target="_blank" class="btn" style="margin-right:1rem;">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+            <a href="index.html#projects" class="btn">
+                <i class="fas fa-arrow-left"></i> All Projects
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. All rights reserved.</p>
+    </footer>
+</body>
+</html>

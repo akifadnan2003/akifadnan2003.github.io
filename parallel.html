@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel Point-in-Polygon | Akif Adnan</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .detail-hero {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        .detail-hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .detail-hero .subtitle { color: #b0b0b0; font-size: 1.1rem; margin-bottom: 2rem; }
+        .tag {
+            display: inline-block;
+            background: rgba(74,144,226,0.15);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+        .detail-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+        .detail-section h2 {
+            text-align: left;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+        .detail-section p { color: #c0c0c0; line-height: 1.8; margin-bottom: 1rem; }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stat-card {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border-top: 3px solid var(--accent-color);
+        }
+        .stat-card .value { font-size: 2.2rem; font-weight: bold; color: var(--accent-color); }
+        .stat-card .label { font-size: 0.85rem; color: #888; margin-top: 0.25rem; }
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        .result-table th, .result-table td {
+            border: 1px solid #2a2a2a;
+            padding: 0.75rem 1rem;
+            text-align: center;
+        }
+        .result-table th { background: #1a1a1a; color: var(--accent-color); }
+        .result-table td { color: #c0c0c0; }
+        .result-table tr:hover td { background: rgba(74,144,226,0.05); }
+        .highlight { color: var(--accent-color); font-weight: bold; }
+        .best { color: #4ade80; font-weight: bold; }
+        .back-link {
+            display: block;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 2rem 5%;
+        }
+        .back-link:hover { color: #fff; }
+        .chart-img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+            display: block;
+            margin: 1.5rem auto;
+            border: 1px solid #2a2a2a;
+        }
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        @media (max-width: 600px) { .chart-row { grid-template-columns: 1fr; } }
+        .code-box {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.82rem;
+            color: #b0b0b0;
+            line-height: 1.7;
+            overflow-x: auto;
+        }
+        .kw  { color: #4a90e2; }
+        .cm  { color: #666; font-style: italic; }
+        .polygon-ascii {
+            font-family: 'Courier New', monospace;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="Akif Adnan Logo" style="height:60px;vertical-align:middle;" />
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Parallel Point-in-Polygon</h1>
+            <p class="subtitle">Parallelised Ray Casting Algorithm with Java ExecutorService — up to 4.42× Speedup</p>
+            <div>
+                <span class="tag">Java</span>
+                <span class="tag">ExecutorService</span>
+                <span class="tag">Parallel Programming</span>
+                <span class="tag">Ray Casting</span>
+                <span class="tag">Swing GUI</span>
+                <span class="tag">Benchmarking</span>
+            </div>
+            <div style="margin-top:1.5rem;">
+                <a href="https://drive.google.com/file/d/1pnuTolDeu92ZCpKlFoyhwuiBukSR1Ox9/view?usp=sharing" target="_blank" class="btn">
+                    <i class="fas fa-video"></i> Demo Video
+                </a>
+            </div>
+        </div>
+
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <div class="detail-section">
+            <h2>Overview</h2>
+            <p>
+                Given a polygon and a large set of test points, <strong>Point-in-Polygon (PIP)</strong> asks: which points lie inside?
+                This is O(n) per point, so for millions of points the workload becomes expensive.
+                This project parallelises PIP using Java's <code>ExecutorService</code> thread pool —
+                the point set is split into equal chunks, each chunk is processed independently by a thread,
+                and results are collected after all futures complete.
+            </p>
+            <p>
+                The test polygon is a <strong>concave (non-convex) L-shape</strong> — this rules out shortcut tests like
+                bounding-box or centroid-distance and demands a full geometric algorithm.
+                The Ray Casting method works correctly for both convex and concave polygons.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Key Results</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="value">4.42×</div>
+                    <div class="label">Max Speedup (5M pts, 8 threads)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">4.00×</div>
+                    <div class="label">Speedup at 4 threads (1M pts)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">100%</div>
+                    <div class="label">Correctness (all 8 test cases)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">5M</div>
+                    <div class="label">Max Points Benchmarked</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>The Algorithm — Ray Casting</h2>
+            <p>
+                A horizontal ray is fired from each test point to +∞.
+                The number of times the ray crosses a polygon edge is counted — odd crossings mean inside, even mean outside.
+                Time complexity: <span class="highlight">O(n)</span> per point, where n is the number of polygon vertices.
+            </p>
+            <div class="code-box">
+<span class="kw">public boolean</span> isInside(<span class="kw">double</span> px, <span class="kw">double</span> py) {
+    <span class="kw">boolean</span> inside = <span class="kw">false</span>;
+    <span class="kw">int</span> j = n - 1;
+    <span class="kw">for</span> (<span class="kw">int</span> i = 0; i &lt; n; i++) {
+        <span class="kw">boolean</span> yCondition = (polyY[i] &gt; py) != (polyY[j] &gt; py);
+        <span class="kw">if</span> (yCondition) {
+            <span class="kw">double</span> xIntersect = (polyX[j] - polyX[i]) * (py - polyY[i])
+                    / (polyY[j] - polyY[i]) + polyX[i];
+            <span class="kw">if</span> (px &lt; xIntersect) inside = !inside;
+        }
+        j = i;
+    }
+    <span class="kw">return</span> inside;
+}
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Parallel Strategy</h2>
+            <p>
+                The M test points are split into T equal chunks — one per thread.
+                Each thread calls <code>isInside()</code> for every point in its chunk independently.
+                No shared mutable state between threads → <span class="highlight">embarrassingly parallel</span>,
+                ideal for linear scaling.
+            </p>
+            <div class="code-box">
+ExecutorService executor = Executors.newFixedThreadPool(numThreads);
+<span class="kw">int</span> chunkSize = (m + numThreads - 1) / numThreads;
+
+<span class="kw">for</span> (<span class="kw">int</span> t = 0; t &lt; numThreads; t++) {
+    <span class="kw">final int</span> start = t * chunkSize;
+    <span class="kw">final int</span> end   = Math.min(start + chunkSize, m);
+    futures.add(executor.submit(() -&gt; {
+        <span class="kw">for</span> (<span class="kw">int</span> i = start; i &lt; end; i++)
+            results[i] = isInside(testX[i], testY[i]);
+    }));
+}
+<span class="kw">for</span> (Future&lt;?&gt; f : futures) f.get(); <span class="cm">// wait for all</span>
+executor.shutdown();
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Benchmark Results</h2>
+
+            <h3 style="color:#b0b0b0; margin-bottom:1rem;">Speedup vs Point Count (4 Threads)</h3>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Points</th><th>Sequential (ms)</th><th>Parallel 4t (ms)</th><th>Speedup</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>100</td>       <td>0.003</td><td>0.517</td><td>0.01× (overhead dominates)</td></tr>
+                    <tr><td>10,000</td>    <td>0.160</td><td>0.451</td><td>0.35×</td></tr>
+                    <tr><td>100,000</td>   <td>1.696</td><td>0.963</td><td class="highlight">1.76×</td></tr>
+                    <tr><td>1,000,000</td> <td>17.769</td><td>5.499</td><td class="highlight">3.23×</td></tr>
+                </tbody>
+            </table>
+
+            <h3 style="color:#b0b0b0; margin: 2rem 0 1rem;">Speedup vs Thread Count</h3>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Points</th><th>Threads</th><th>Sequential (ms)</th><th>Parallel (ms)</th><th>Speedup</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>500,000</td>   <td>2</td><td>8</td><td>4</td>  <td>2.00×</td></tr>
+                    <tr><td>500,000</td>   <td>4</td><td>8</td><td>2</td>  <td>4.00×</td></tr>
+                    <tr><td>1,000,000</td> <td>2</td><td>16</td><td>9</td> <td>1.78×</td></tr>
+                    <tr><td>1,000,000</td> <td>4</td><td>16</td><td>4</td> <td>4.00×</td></tr>
+                    <tr><td>5,000,000</td> <td>2</td><td>84</td><td>44</td><td>1.91×</td></tr>
+                    <tr><td>5,000,000</td> <td>4</td><td>84</td><td>24</td><td>3.50×</td></tr>
+                    <tr><td>5,000,000</td> <td>8</td><td>84</td><td>19</td><td class="best">4.42×</td></tr>
+                </tbody>
+            </table>
+
+            <div class="chart-row">
+                <div>
+                    <p style="text-align:center; color:#888; font-size:0.85rem; margin-bottom:0.5rem;">Sequential vs Parallel Runtime</p>
+                    <img src="chart_seq_vs_par.png" alt="Sequential vs Parallel Runtime Chart" class="chart-img" style="margin:0;">
+                </div>
+                <div>
+                    <p style="text-align:center; color:#888; font-size:0.85rem; margin-bottom:0.5rem;">Speedup vs Thread Count</p>
+                    <img src="chart_speedup_threads.png" alt="Speedup vs Threads Chart" class="chart-img" style="margin:0;">
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Test Polygon — Concave L-Shape</h2>
+            <p>
+                The L-shaped polygon tests the algorithm on a concave shape. The indented corner at (3,3) is outside the polygon —
+                a bounding-box test would wrongly classify it as inside.
+            </p>
+            <div style="display:flex; gap:2rem; align-items:flex-start; flex-wrap:wrap;">
+                <div class="polygon-ascii">
+(0,4)──(2,4)
+  │       │
+(0,2)  (2,2)──(4,2)
+  │               │
+(0,0)──────────(4,0)
+                </div>
+                <img src="chart_polygon.png" alt="Polygon Visualisation" style="max-width:320px; border-radius:8px; border:1px solid #2a2a2a;">
+            </div>
+
+            <h3 style="color:#b0b0b0; margin: 2rem 0 1rem;">Correctness Verification</h3>
+            <table class="result-table">
+                <thead><tr><th>Point</th><th>Expected</th><th>Result</th></tr></thead>
+                <tbody>
+                    <tr><td>(1.0, 1.0)</td><td>Inside</td> <td style="color:#4ade80;">Inside ✓</td></tr>
+                    <tr><td>(0.5, 3.0)</td><td>Inside</td> <td style="color:#4ade80;">Inside ✓</td></tr>
+                    <tr><td>(3.0, 1.0)</td><td>Inside</td> <td style="color:#4ade80;">Inside ✓</td></tr>
+                    <tr><td>(3.0, 3.0)</td><td>Outside</td><td style="color:#4ade80;">Outside ✓</td></tr>
+                    <tr><td>(5.0, 1.0)</td><td>Outside</td><td style="color:#4ade80;">Outside ✓</td></tr>
+                    <tr><td>(2.5, 3.0)</td><td>Outside</td><td style="color:#4ade80;">Outside ✓</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section">
+            <h2>Why Speedup Plateaus</h2>
+            <p>
+                According to <strong>Amdahl's Law</strong>, thread-creation overhead forms a non-parallelisable serial fraction.
+                At small point counts this overhead dominates entirely — parallel is slower than sequential.
+                Past ~100,000 points the computation cost dwarfs the overhead and speedup approaches the number of available cores.
+                8 threads gain only ~26% over 4 threads because the system has limited physical cores (hyperthreading shares execution units).
+            </p>
+            <p>
+                Practical recommendation: <span class="highlight">4 threads</span> gives the best cost/benefit ratio
+                for workloads of 100K+ points.
+            </p>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="https://drive.google.com/file/d/1pnuTolDeu92ZCpKlFoyhwuiBukSR1Ox9/view?usp=sharing" target="_blank" class="btn" style="margin-right:1rem;">
+                <i class="fas fa-video"></i> Watch Demo
+            </a>
+            <a href="index.html#projects" class="btn">
+                <i class="fas fa-arrow-left"></i> All Projects
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turkish NLP | Akif Adnan</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .detail-hero {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        .detail-hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .detail-hero .subtitle { color: #b0b0b0; font-size: 1.1rem; margin-bottom: 2rem; }
+        .tag {
+            display: inline-block;
+            background: rgba(74,144,226,0.15);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+        .detail-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+        .detail-section h2 {
+            text-align: left;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+        .detail-section p { color: #c0c0c0; line-height: 1.8; margin-bottom: 1rem; }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stat-card {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border-top: 3px solid var(--accent-color);
+        }
+        .stat-card .value { font-size: 2.2rem; font-weight: bold; color: var(--accent-color); }
+        .stat-card .label { font-size: 0.85rem; color: #888; margin-top: 0.25rem; }
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        .result-table th, .result-table td {
+            border: 1px solid #2a2a2a;
+            padding: 0.75rem 1rem;
+            text-align: center;
+        }
+        .result-table th { background: #1a1a1a; color: var(--accent-color); }
+        .result-table td { color: #c0c0c0; }
+        .result-table tr:hover td { background: rgba(74,144,226,0.05); }
+        .highlight { color: var(--accent-color); font-weight: bold; }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin: 2rem 5%;
+            display: block;
+        }
+        .back-link:hover { color: #fff; }
+        .pipeline-box {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+        .pipe-step {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 0.8rem 1.2rem;
+            color: #c0c0c0;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        .pipe-arrow { color: var(--accent-color); font-size: 1.2rem; }
+        .good { color: #4ade80; }
+        .ok   { color: #facc15; }
+        .low  { color: #f87171; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="Akif Adnan Logo" style="height:60px;vertical-align:middle;" />
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Turkish NLP</h1>
+            <p class="subtitle">Morphological Disambiguation for Turkish using Conditional Random Fields</p>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">CRF</span>
+                <span class="tag">sklearn-crfsuite</span>
+                <span class="tag">CoNLL-U</span>
+                <span class="tag">UD Treebank</span>
+                <span class="tag">Flask</span>
+                <span class="tag">NLP</span>
+            </div>
+        </div>
+
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <div class="detail-section">
+            <h2>Overview</h2>
+            <p>
+                Turkish is a highly agglutinative language — a single word form can carry many morphological tags simultaneously,
+                making part-of-speech disambiguation significantly harder than in English. This project trains a
+                <strong>Conditional Random Fields (CRF)</strong> sequence model on the
+                <strong>UD Turkish-IMST Treebank</strong> to predict Universal POS tags for each token in a sentence.
+            </p>
+            <p>
+                The model achieves <span class="highlight">90.93% accuracy</span> and <span class="highlight">90.80% weighted F1</span>
+                on the official test split. A Flask web application allows live inference: input any Turkish sentence and receive
+                per-token POS predictions alongside CoNLL-U output.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Key Metrics</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="value">90.93%</div>
+                    <div class="label">Test Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">90.80%</div>
+                    <div class="label">Weighted F1</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">3,435</div>
+                    <div class="label">Training Sentences</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">1,100</div>
+                    <div class="label">Test Sentences</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Pipeline</h2>
+            <div class="pipeline-box">
+                <div class="pipe-step">CoNLL-U<br>Data Loading</div>
+                <span class="pipe-arrow">→</span>
+                <div class="pipe-step">Feature<br>Extraction</div>
+                <span class="pipe-arrow">→</span>
+                <div class="pipe-step">CRF<br>Training</div>
+                <span class="pipe-arrow">→</span>
+                <div class="pipe-step">Evaluation<br>&amp; Metrics</div>
+                <span class="pipe-arrow">→</span>
+                <div class="pipe-step">Flask<br>Web Demo</div>
+            </div>
+            <p>
+                Features fed to the CRF include surface form, character n-grams, suffix patterns, surrounding token context,
+                and morphological feature strings from the treebank. The model learns to resolve ambiguity at the sequence level,
+                using context from neighbouring tokens rather than deciding each word in isolation.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Per-Class Results — Test Set (1,100 sentences)</h2>
+            <table class="result-table">
+                <thead>
+                    <tr><th>POS Tag</th><th>Precision</th><th>Recall</th><th>F1</th><th>Support</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>PUNCT</td> <td class="good">99.9%</td><td class="good">100.0%</td><td class="good">99.95</td><td>1,933</td></tr>
+                    <tr><td>CCONJ</td> <td class="good">96.4%</td><td class="good">96.4%</td> <td class="good">96.4</td> <td>356</td></tr>
+                    <tr><td>AUX</td>   <td class="good">94.4%</td><td class="good">96.2%</td> <td class="good">95.3</td> <td>211</td></tr>
+                    <tr><td>VERB</td>  <td class="good">93.8%</td><td class="good">94.1%</td> <td class="good">93.9</td> <td>1,928</td></tr>
+                    <tr><td>PRON</td>  <td class="good">94.5%</td><td class="ok">92.9%</td>   <td class="good">93.7</td> <td>464</td></tr>
+                    <tr><td>ADP</td>   <td class="good">95.6%</td><td class="ok">90.5%</td>   <td class="good">92.9</td> <td>357</td></tr>
+                    <tr><td>DET</td>   <td class="ok">84.2%</td>  <td class="good">96.2%</td> <td class="ok">89.8</td>   <td>344</td></tr>
+                    <tr><td>NOUN</td>  <td class="ok">84.3%</td>  <td class="good">92.5%</td> <td class="ok">88.2</td>   <td>2,430</td></tr>
+                    <tr><td>ADV</td>   <td class="ok">88.8%</td>  <td class="ok">77.0%</td>   <td class="ok">82.5</td>   <td>461</td></tr>
+                    <tr><td>ADJ</td>   <td class="ok">84.9%</td>  <td class="ok">75.8%</td>   <td class="ok">80.1</td>   <td>960</td></tr>
+                    <tr><td>NUM</td>   <td class="ok">90.7%</td>  <td class="low">71.4%</td>  <td class="ok">79.9</td>   <td>192</td></tr>
+                    <tr><td>PROPN</td> <td class="ok">83.3%</td>  <td class="low">70.9%</td>  <td class="ok">76.6</td>   <td>374</td></tr>
+                </tbody>
+            </table>
+            <p>
+                Punctuation, conjunctions, and auxiliaries are disambiguated with near-perfect accuracy.
+                PROPN and NUM are the hardest classes — proper nouns share surface forms with common nouns and numbers
+                can appear as adjectives or determiners in Turkish.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Custom Annotation Results</h2>
+            <p>
+                20 additional sentences were manually annotated in CoNLL-U format across three domains
+                (general, news, and academic), then evaluated against model predictions.
+            </p>
+            <table class="result-table">
+                <thead>
+                    <tr><th>POS Tag</th><th>Precision</th><th>Recall</th><th>F1</th><th>Support</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>PUNCT</td><td class="good">100%</td><td class="good">100%</td><td class="good">100.0</td><td>25</td></tr>
+                    <tr><td>VERB</td> <td class="good">93.8%</td><td class="good">100%</td><td class="good">96.8</td> <td>30</td></tr>
+                    <tr><td>NOUN</td> <td class="ok">85.7%</td>  <td class="ok">82.8%</td>  <td class="ok">84.2</td>  <td>58</td></tr>
+                    <tr><td>ADJ</td>  <td class="low">63.6%</td> <td class="ok">77.8%</td>  <td class="ok">70.0</td>  <td>18</td></tr>
+                    <tr><td>ADV</td>  <td class="good">100%</td> <td class="low">46.2%</td> <td class="ok">63.2</td>  <td>13</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section">
+            <h2>Dataset</h2>
+            <p>
+                The <strong>UD Turkish-IMST Treebank</strong> is part of the Universal Dependencies project. It provides
+                morphologically rich annotations in CoNLL-U format with UPOS tags, morphological features, lemmas,
+                and dependency relations for Turkish sentences drawn from news and literary text.
+            </p>
+            <table class="result-table">
+                <thead><tr><th>Split</th><th>Sentences</th><th>Tokens</th></tr></thead>
+                <tbody>
+                    <tr><td>Train</td><td>3,435</td><td>~40,000</td></tr>
+                    <tr><td>Dev</td>  <td>1,247</td><td>~16,000</td></tr>
+                    <tr><td>Test</td> <td>1,100</td><td>~14,000</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#projects" class="btn">
+                <i class="fas fa-arrow-left"></i> All Projects
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. All rights reserved.</p>
+    </footer>
+</body>
+</html>
