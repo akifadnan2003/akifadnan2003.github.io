@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipment Tracking Dashboard | Akif Adnan</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .detail-hero { padding: 120px 0 60px; text-align: center; }
+        .detail-hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .detail-hero .subtitle { color: #b0b0b0; font-size: 1.1rem; margin-bottom: 2rem; }
+        .tag {
+            display: inline-block;
+            background: rgba(56,189,248,0.15);
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+        .detail-section { max-width: 900px; margin: 0 auto; padding: 3rem 5%; }
+        .detail-section h2 {
+            text-align: left;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #38bdf8;
+            padding-left: 1rem;
+        }
+        .detail-section p { color: #c0c0c0; line-height: 1.8; margin-bottom: 1rem; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .feature-card { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; border-left: 3px solid #38bdf8; }
+        .feature-card h4 { color: #38bdf8; margin-bottom: 0.5rem; }
+        .feature-card p { color: #b0b0b0; font-size: 0.9rem; margin: 0; }
+        .result-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        .result-table th, .result-table td { border: 1px solid #2a2a2a; padding: 0.75rem 1rem; text-align: center; }
+        .result-table th { background: #1a1a1a; color: #38bdf8; }
+        .result-table td { color: #c0c0c0; }
+        .result-table tr:hover td { background: rgba(56,189,248,0.05); }
+        .back-link { display: block; color: #38bdf8; font-weight: bold; margin: 2rem 5%; }
+        .back-link:hover { color: #fff; }
+        .arch-box {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .stat-card { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; text-align: center; border: 1px solid #2a2a2a; }
+        .stat-card .stat-number { font-size: 2rem; font-weight: bold; color: #38bdf8; }
+        .stat-card .stat-label { color: #888; font-size: 0.85rem; margin-top: 0.4rem; }
+        .status-badge {
+            display: inline-block;
+            padding: 0.2rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="Akif Adnan Logo" style="height:60px;vertical-align:middle;" />
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Shipment Tracking Dashboard</h1>
+            <p class="subtitle">Real-Time Multi-Carrier Tracking Platform with Automated Nightly Processing</p>
+            <div>
+                <span class="tag">FastAPI</span>
+                <span class="tag">Next.js 16</span>
+                <span class="tag">React 19</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">BigQuery</span>
+                <span class="tag">Google Cloud Run</span>
+                <span class="tag">DHL API</span>
+                <span class="tag">UPS API</span>
+            </div>
+            <div style="margin-top:1.5rem;">
+                <a href="https://github.com/akifadnan2003/aero-tracker" target="_blank" class="btn" style="margin-right:1rem;">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <div class="detail-section">
+            <h2>Overview</h2>
+            <p>
+                A production-grade full-stack shipment tracking platform that consolidates DHL and UPS carrier data
+                into a single real-time dashboard. Customer service teams can search any order number, see live
+                shipment status, and take bulk administrative actions — all from a unified web interface.
+            </p>
+            <p>
+                The backend runs on Google Cloud Run with a nightly Cloud Scheduler job that re-checks all
+                non-delivered orders Monday through Friday at 21:00 (TRT), processing 1,200+ orders per run.
+                All data is stored in BigQuery for historical analysis and monthly KPI reporting.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Key Metrics</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">1,200+</div>
+                    <div class="stat-label">Orders processed per nightly batch run</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">~40 min</div>
+                    <div class="stat-label">Average nightly batch runtime</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Shipment status classifications</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Carriers integrated (DHL + UPS)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Architecture</h2>
+            <div class="arch-box">Frontend (Next.js 16 + React 19 + TypeScript — Vercel)
+  ├── /               Orders dashboard (filterable, real-time SSE)
+  ├── /analytics      Order journey timeline
+  ├── /reports        Monthly KPI reports + CSV export
+  ├── /packets        Packet-level tracking view
+  └── /login          JWT session authentication
+
+Backend (FastAPI — Google Cloud Run)
+  ├── main.py         All REST API routes (47 KB)
+  ├── tracker.py      BigQuery client + DHL/UPS tracker (49 KB)
+  └── TrackingReport  Nightly batch job (39 KB)
+
+Database: Google BigQuery (3 tables)
+Scheduler: Cloud Scheduler — Mon–Fri 21:00 TRT
+Alerts: Zendesk ticket auto-creation on detected delays</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Real-Time SSE Progress</h4>
+                    <p>Server-Sent Events stream live scan progress to the dashboard during mass re-scan operations. A real-time progress bar shows exactly how many orders have been checked, with no page refresh needed.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Multi-Carrier Support</h4>
+                    <p>DHL Tracking API and UPS OAuth 2.0 integration normalise carrier-specific status codes into a unified 5-state classification system, so agents see consistent status regardless of carrier.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Admin Bulk Operations</h4>
+                    <p>Admins can re-scan individual orders, trigger mass scans across all active shipments, or force a full sync from the carrier APIs. All operations are protected by JWT RBAC.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Nightly Automation</h4>
+                    <p>Cloud Scheduler triggers the nightly batch job (Mon–Fri 21:00 TRT) which re-checks every non-delivered order against live carrier APIs and updates BigQuery — keeping data fresh without manual intervention.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Delay Alerts via Helpdesk</h4>
+                    <p>When the tracking engine detects a shipment that has exceeded its SLA window, it automatically creates a support ticket with full shipment context attached for the operations team to action.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Monthly KPI Reports</h4>
+                    <p>A dedicated reports page aggregates BigQuery data into monthly KPIs: delivery rate, average transit time, delay rate by carrier, and return rate. Exportable as CSV for external reporting.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Status Classification System</h2>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Status</th><th>Meaning</th><th>Action</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Delivered</td><td>Confirmed delivery event from carrier</td><td>Archive — no further action</td></tr>
+                    <tr><td>On Track</td><td>In transit within expected window</td><td>Monitor nightly</td></tr>
+                    <tr><td>Delayed</td><td>Exceeded SLA or stuck in transit</td><td>Auto-create helpdesk alert</td></tr>
+                    <tr><td>Return</td><td>Carrier initiated return to sender</td><td>Flag for operations team</td></tr>
+                    <tr><td>Error</td><td>Carrier API returned no data / unknown</td><td>Trigger manual re-scan</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section">
+            <h2>Tech Stack</h2>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Layer</th><th>Technology</th><th>Deployment</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Frontend</td><td>Next.js 16, React 19, TypeScript</td><td>Vercel</td></tr>
+                    <tr><td>Backend API</td><td>Python FastAPI</td><td>Google Cloud Run</td></tr>
+                    <tr><td>Database</td><td>Google BigQuery</td><td>GCP managed</td></tr>
+                    <tr><td>Auth</td><td>JWT session cookies + RBAC</td><td>In-process</td></tr>
+                    <tr><td>Scheduler</td><td>Google Cloud Scheduler</td><td>GCP managed</td></tr>
+                    <tr><td>Carriers</td><td>DHL API + UPS OAuth 2.0</td><td>External APIs</td></tr>
+                    <tr><td>Alerts</td><td>Zendesk REST API</td><td>External SaaS</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="https://github.com/akifadnan2003/aero-tracker" target="_blank" class="btn" style="margin-right:1rem;">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+            <a href="index.html#projects" class="btn">
+                <i class="fas fa-arrow-left"></i> All Projects
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. All rights reserved.</p>
+    </footer>
+</body>
+</html>

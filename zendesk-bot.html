@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Automation Bot | Akif Adnan</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .detail-hero { padding: 120px 0 60px; text-align: center; }
+        .detail-hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .detail-hero .subtitle { color: #b0b0b0; font-size: 1.1rem; margin-bottom: 2rem; }
+        .tag {
+            display: inline-block;
+            background: rgba(249,115,22,0.15);
+            border: 1px solid #f97316;
+            color: #f97316;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+        .detail-section { max-width: 900px; margin: 0 auto; padding: 3rem 5%; }
+        .detail-section h2 {
+            text-align: left;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #f97316;
+            padding-left: 1rem;
+        }
+        .detail-section p { color: #c0c0c0; line-height: 1.8; margin-bottom: 1rem; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .feature-card { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; border-left: 3px solid #f97316; }
+        .feature-card h4 { color: #f97316; margin-bottom: 0.5rem; }
+        .feature-card p { color: #b0b0b0; font-size: 0.9rem; margin: 0; }
+        .result-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        .result-table th, .result-table td { border: 1px solid #2a2a2a; padding: 0.75rem 1rem; text-align: center; }
+        .result-table th { background: #1a1a1a; color: #f97316; }
+        .result-table td { color: #c0c0c0; }
+        .result-table tr:hover td { background: rgba(249,115,22,0.05); }
+        .back-link { display: block; color: #f97316; font-weight: bold; margin: 2rem 5%; }
+        .back-link:hover { color: #fff; }
+        .arch-box {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .stat-card { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; text-align: center; border: 1px solid #2a2a2a; }
+        .stat-card .stat-number { font-size: 2rem; font-weight: bold; color: #f97316; }
+        .stat-card .stat-label { color: #888; font-size: 0.85rem; margin-top: 0.4rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="Akif Adnan Logo" style="height:60px;vertical-align:middle;" />
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Support Automation Bot</h1>
+            <p class="subtitle">AI-Powered Ticket Triage, Routing &amp; Automated Resolution System</p>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">Google Gemini</span>
+                <span class="tag">Claude AI</span>
+                <span class="tag">BigQuery</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">RAG</span>
+                <span class="tag">Docker</span>
+            </div>
+        </div>
+
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <div class="detail-section">
+            <h2>Overview</h2>
+            <p>
+                An end-to-end AI support automation platform that eliminates manual ticket handling by automatically
+                classifying, routing, and resolving incoming customer support tickets. The system integrates directly
+                with a helpdesk platform via its REST API, enabling zero-touch resolution for a wide range of request types.
+            </p>
+            <p>
+                At its core, the bot uses a Retrieval-Augmented Generation (RAG) pipeline — querying a vector knowledge
+                base of historical tickets and documentation — to generate contextually accurate responses. Dual LLM
+                support (Google Gemini and Claude) allows for model failover and A/B comparison. All ticket data and
+                metrics flow into BigQuery for long-term analytics.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Key Metrics</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">13K+</div>
+                    <div class="stat-label">Ticket embeddings indexed in RAG vector store</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">22 MB</div>
+                    <div class="stat-label">Sanitised historical ticket dataset used for training</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Specialised handler modules</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">LLM providers (Gemini + Claude) with failover</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>System Architecture</h2>
+            <div class="arch-box">FastAPI API layer
+  └── Semantic Router (intent classification via embeddings)
+        ├── Handler: Order Info       → lookup + reply
+        ├── Handler: RMA / Return     → policy check + draft
+        ├── Handler: Shipment Track   → carrier API + reply
+        ├── Handler: Technical Support→ RAG knowledge base
+        ├── Handler: Compatibility    → product DB lookup
+        ├── Handler: Escalation       → route to human agent
+        └── Handler: Default          → Gemini / Claude free-form
+
+Services: GeminiClient | ZendeskClient | BigQueryClient | LocalRAG
+Data:     embeddings.npy (3.8MB) | sanitised_tickets.json (22MB)</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Semantic Routing</h4>
+                    <p>Incoming ticket text is embedded and matched against intent clusters using cosine similarity, directing each ticket to the most appropriate specialised handler without rule-based keyword matching.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>RAG Knowledge Base</h4>
+                    <p>A local vector store built from 13K+ historical tickets and documentation chunks enables grounded, citation-backed responses. New tickets continuously enrich the store.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>RMA &amp; Return Handling</h4>
+                    <p>Automated RMA workflow checks eligibility against return policy rules, drafts approval or rejection replies, and updates the ticket status — no human intervention needed for standard cases.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Escalation Engine</h4>
+                    <p>Configurable escalation rules detect high-priority signals (VIP customers, repeated contacts, negative sentiment) and route tickets to the correct support group with full context attached.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>BigQuery Analytics</h4>
+                    <p>Every resolution event, handler decision, and LLM call is logged to BigQuery, enabling dashboards on resolution rates, average handle time, and escalation frequency.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Docker Deployment</h4>
+                    <p>Containerised FastAPI service with environment-based configuration, making it deployable to any cloud provider with a single docker-compose command.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Handler Coverage</h2>
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>Handler</th>
+                        <th>Ticket Type</th>
+                        <th>Resolution Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Order Info</td><td>Order status / delivery</td><td>Order API lookup → auto-reply</td></tr>
+                    <tr><td>RMA / Return</td><td>Return / refund requests</td><td>Policy check → draft + submit</td></tr>
+                    <tr><td>Tracking</td><td>Shipment tracking</td><td>Carrier API → status update</td></tr>
+                    <tr><td>Technical Support</td><td>Product issues / faults</td><td>RAG → knowledge-based reply</td></tr>
+                    <tr><td>Compatibility</td><td>Part fit / vehicle match</td><td>Product DB → compatibility check</td></tr>
+                    <tr><td>Escalation</td><td>Complex / VIP / repeat</td><td>Route to human agent group</td></tr>
+                    <tr><td>Default</td><td>All other intent types</td><td>Gemini / Claude free-form</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#projects" class="btn">
+                <i class="fas fa-arrow-left"></i> All Projects
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. All rights reserved.</p>
+    </footer>
+</body>
+</html>

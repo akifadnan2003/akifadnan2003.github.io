@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IVR Voice Generation System | Akif Adnan</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .detail-hero { padding: 120px 0 60px; text-align: center; }
+        .detail-hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .detail-hero .subtitle { color: #b0b0b0; font-size: 1.1rem; margin-bottom: 2rem; }
+        .tag {
+            display: inline-block;
+            background: rgba(251,113,133,0.15);
+            border: 1px solid #fb7185;
+            color: #fb7185;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+        .detail-section { max-width: 900px; margin: 0 auto; padding: 3rem 5%; }
+        .detail-section h2 {
+            text-align: left;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #fb7185;
+            padding-left: 1rem;
+        }
+        .detail-section p { color: #c0c0c0; line-height: 1.8; margin-bottom: 1rem; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .feature-card { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; border-left: 3px solid #fb7185; }
+        .feature-card h4 { color: #fb7185; margin-bottom: 0.5rem; }
+        .feature-card p { color: #b0b0b0; font-size: 0.9rem; margin: 0; }
+        .result-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        .result-table th, .result-table td { border: 1px solid #2a2a2a; padding: 0.75rem 1rem; text-align: center; }
+        .result-table th { background: #1a1a1a; color: #fb7185; }
+        .result-table td { color: #c0c0c0; }
+        .result-table tr:hover td { background: rgba(251,113,133,0.05); }
+        .back-link { display: block; color: #fb7185; font-weight: bold; margin: 2rem 5%; }
+        .back-link:hover { color: #fff; }
+        .arch-box {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .stat-card { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; text-align: center; border: 1px solid #2a2a2a; }
+        .stat-card .stat-number { font-size: 2rem; font-weight: bold; color: #fb7185; }
+        .stat-card .stat-label { color: #888; font-size: 0.85rem; margin-top: 0.4rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="Akif Adnan Logo" style="height:60px;vertical-align:middle;" />
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>IVR Voice Generation System</h1>
+            <p class="subtitle">Automated Multi-Language Call Centre Greeting Generator via Google Cloud TTS</p>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">Google Cloud TTS</span>
+                <span class="tag">Multi-Language</span>
+                <span class="tag">IVR</span>
+                <span class="tag">MP3 / WAV</span>
+            </div>
+        </div>
+
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <div class="detail-section">
+            <h2>Overview</h2>
+            <p>
+                A Python application that programmatically generates all IVR (Interactive Voice Response) greeting
+                audio files for a multi-country call centre operation. Rather than recording greetings manually
+                with voice actors for each market, the system uses the Google Cloud Text-to-Speech API to produce
+                natural-sounding, locale-specific audio from text templates.
+            </p>
+            <p>
+                The generator covers 20+ country domains, each requiring gender-specific (male/female) voice variants
+                and locale-accurate pronunciation. Output files are produced in both MP3 and WAV formats to
+                satisfy the format requirements of different telephony systems.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Key Metrics</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Country-specific domain greetings generated</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">Languages / locales covered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Voice genders per domain (male + female)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Output formats (MP3 + WAV)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>System Design</h2>
+            <div class="arch-box">IVR Voice Generation Pipeline
+  ├── app.py
+  │     Read domain config → build SSML text → call Cloud TTS
+  │     → write MP3 (default) + WAV (telephony systems)
+  ├── Domain config
+  │     Per-country locale, language code, voice name, gender
+  └── Outputs
+        CALLS/ (~30 WAV files, one per domain + gender variant)
+        *.mp3  (MP3 variants for web-compatible playback)
+
+Google Cloud TTS voices selected per locale:
+  de-DE  → Wavenet-B (male) / Wavenet-A (female)
+  en-US  → Wavenet-D (male) / Wavenet-F (female)
+  fr-FR  → Wavenet-B (male) / Wavenet-A (female)
+  ... (17 locales total)</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Locale-Accurate Pronunciation</h4>
+                    <p>Each domain maps to an exact BCP-47 language tag (e.g. fr-BE for French Belgium) ensuring the Cloud TTS engine uses the correct regional accent and phoneme rules rather than a generic fallback.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Dual-Gender Voices</h4>
+                    <p>Every country domain produces both a male and female greeting, giving telephony administrators the option to select the preferred voice for each market without re-running the generator.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Dual-Format Output</h4>
+                    <p>Audio is exported as MP3 for general use and as WAV (PCM) for telephony systems that require uncompressed audio. Both formats are generated in a single API call cycle.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Batch Generation</h4>
+                    <p>A single script run generates all domain-language-gender combinations in sequence, producing the full library of greetings without any manual steps between domains.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Language Coverage</h2>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Region</th><th>Locale</th><th>Voices Generated</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Germany</td><td>de-DE</td><td>Male + Female</td></tr>
+                    <tr><td>USA</td><td>en-US</td><td>Male + Female</td></tr>
+                    <tr><td>United Kingdom</td><td>en-GB</td><td>Male + Female</td></tr>
+                    <tr><td>France</td><td>fr-FR</td><td>Male + Female</td></tr>
+                    <tr><td>Italy</td><td>it-IT</td><td>Male + Female</td></tr>
+                    <tr><td>Netherlands</td><td>nl-NL</td><td>Male + Female</td></tr>
+                    <tr><td>Belgium (FR)</td><td>fr-BE</td><td>Male + Female</td></tr>
+                    <tr><td>Belgium (NL)</td><td>nl-BE</td><td>Male + Female</td></tr>
+                    <tr><td>Spain</td><td>es-ES</td><td>Male + Female</td></tr>
+                    <tr><td>Portugal</td><td>pt-PT</td><td>Male + Female</td></tr>
+                    <tr><td>Sweden</td><td>sv-SE</td><td>Male + Female</td></tr>
+                    <tr><td>Poland</td><td>pl-PL</td><td>Male + Female</td></tr>
+                    <tr><td>+ 5 more</td><td>CZ, RO, NO, FI, CH, RU</td><td>Male + Female</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#projects" class="btn">
+                <i class="fas fa-arrow-left"></i> All Projects
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. All rights reserved.</p>
+    </footer>
+</body>
+</html>

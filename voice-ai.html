@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice AI Assistant | Akif Adnan</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .detail-hero { padding: 120px 0 60px; text-align: center; }
+        .detail-hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .detail-hero .subtitle { color: #b0b0b0; font-size: 1.1rem; margin-bottom: 2rem; }
+        .tag {
+            display: inline-block;
+            background: rgba(232,121,249,0.15);
+            border: 1px solid #e879f9;
+            color: #e879f9;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+        .detail-section { max-width: 900px; margin: 0 auto; padding: 3rem 5%; }
+        .detail-section h2 {
+            text-align: left;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #e879f9;
+            padding-left: 1rem;
+        }
+        .detail-section p { color: #c0c0c0; line-height: 1.8; margin-bottom: 1rem; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .feature-card { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; border-left: 3px solid #e879f9; }
+        .feature-card h4 { color: #e879f9; margin-bottom: 0.5rem; }
+        .feature-card p { color: #b0b0b0; font-size: 0.9rem; margin: 0; }
+        .result-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        .result-table th, .result-table td { border: 1px solid #2a2a2a; padding: 0.75rem 1rem; text-align: center; }
+        .result-table th { background: #1a1a1a; color: #e879f9; }
+        .result-table td { color: #c0c0c0; }
+        .result-table tr:hover td { background: rgba(232,121,249,0.05); }
+        .back-link { display: block; color: #e879f9; font-weight: bold; margin: 2rem 5%; }
+        .back-link:hover { color: #fff; }
+        .arch-box {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .stat-card { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; text-align: center; border: 1px solid #2a2a2a; }
+        .stat-card .stat-number { font-size: 2rem; font-weight: bold; color: #e879f9; }
+        .stat-card .stat-label { color: #888; font-size: 0.85rem; margin-top: 0.4rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="Akif Adnan Logo" style="height:60px;vertical-align:middle;" />
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Voice AI Assistant</h1>
+            <p class="subtitle">Multi-Modal Voice Intelligence Platform — Transcription, RAG, and Real-Time Agent</p>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">Deepgram</span>
+                <span class="tag">Twilio</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">RAG</span>
+                <span class="tag">PII Masking</span>
+            </div>
+        </div>
+
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <div class="detail-section">
+            <h2>Overview</h2>
+            <p>
+                A full-stack voice AI platform that handles every stage of customer call intelligence: real-time voice
+                interaction via phone, automatic speech transcription, knowledge-base-grounded Q&amp;A, and post-call
+                analytics. The system is designed to serve as an intelligent call agent that can answer product and
+                order questions without any human involvement.
+            </p>
+            <p>
+                The platform integrates Twilio for telephony, Deepgram for low-latency speech-to-text, and a custom
+                RAG engine backed by order and product vector stores. All call data is persisted in Supabase with
+                PII automatically masked before storage, ensuring GDPR-compliant data handling.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Platform Modules</h2>
+            <div class="arch-box">Voice AI Platform
+  ├── Call Agent (Twilio + Deepgram STT)
+  │     Real-time voice interaction over phone line
+  ├── RAG Engine (ai_engine.py)
+  │     Order search + Product knowledge base (vector embeddings)
+  ├── Analytics Module
+  │     Ticket analysis + PII processor + master PII filter
+  ├── Web Chat Interface
+  │     Streamlit-based chat UI for browser access
+  └── Integrations
+        ├── Deepgram (speech-to-text)
+        ├── Twilio (voice / SMS)
+        ├── Supabase (database)
+        └── Zendesk (ticket data)</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Key Metrics</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Integrated platform modules</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">External API integrations (Deepgram, Twilio, Supabase, Zendesk)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">PII masked before database storage</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Knowledge base domains (orders + products)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Real-Time Voice Agent</h4>
+                    <p>Twilio handles incoming phone calls; Deepgram streams speech-to-text in real time. The AI engine processes the transcription and generates a spoken reply — all within sub-second latency.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>RAG-Powered Q&amp;A</h4>
+                    <p>Order and product knowledge bases are stored as dense vector embeddings. Customer questions are embedded and matched semantically, ensuring factually grounded answers rather than hallucinated responses.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>PII Masking Pipeline</h4>
+                    <p>A multi-stage PII processor detects and masks names, phone numbers, addresses, and order IDs before any data is written to Supabase. A master PII filter provides a final safety net.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Call Analytics</h4>
+                    <p>Post-call analytics module classifies call intent, extracts key entities, and writes structured summaries to the database for quality monitoring and trend analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Zendesk Ticket Sync</h4>
+                    <p>Unresolved calls can automatically generate Zendesk support tickets with a full transcript and extracted context attached, ensuring seamless handover to human agents.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Web Chat Fallback</h4>
+                    <p>A Streamlit-based web chat UI exposes the same AI engine through a browser interface — useful for testing, internal use, or customers who prefer text over voice.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Data Flow</h2>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Stage</th><th>Component</th><th>Output</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1. Inbound Call</td><td>Twilio webhook</td><td>Audio stream</td></tr>
+                    <tr><td>2. Transcription</td><td>Deepgram STT</td><td>Raw text transcript</td></tr>
+                    <tr><td>3. PII Masking</td><td>pii_processor.py</td><td>Sanitised text</td></tr>
+                    <tr><td>4. RAG Query</td><td>ai_engine.py + vector store</td><td>Grounded answer</td></tr>
+                    <tr><td>5. Response</td><td>Twilio TTS</td><td>Spoken reply to caller</td></tr>
+                    <tr><td>6. Storage</td><td>Supabase</td><td>Structured call record</td></tr>
+                    <tr><td>7. Analytics</td><td>analyzer.py</td><td>Intent + entity summary</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#projects" class="btn">
+                <i class="fas fa-arrow-left"></i> All Projects
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. All rights reserved.</p>
+    </footer>
+</body>
+</html>

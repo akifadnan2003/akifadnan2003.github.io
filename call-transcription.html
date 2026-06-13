@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Transcription &amp; Analysis | Akif Adnan</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .detail-hero { padding: 120px 0 60px; text-align: center; }
+        .detail-hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .detail-hero .subtitle { color: #b0b0b0; font-size: 1.1rem; margin-bottom: 2rem; }
+        .tag {
+            display: inline-block;
+            background: rgba(167,139,250,0.15);
+            border: 1px solid #a78bfa;
+            color: #a78bfa;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+        .detail-section { max-width: 900px; margin: 0 auto; padding: 3rem 5%; }
+        .detail-section h2 {
+            text-align: left;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #a78bfa;
+            padding-left: 1rem;
+        }
+        .detail-section p { color: #c0c0c0; line-height: 1.8; margin-bottom: 1rem; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .feature-card { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; border-left: 3px solid #a78bfa; }
+        .feature-card h4 { color: #a78bfa; margin-bottom: 0.5rem; }
+        .feature-card p { color: #b0b0b0; font-size: 0.9rem; margin: 0; }
+        .result-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        .result-table th, .result-table td { border: 1px solid #2a2a2a; padding: 0.75rem 1rem; text-align: center; }
+        .result-table th { background: #1a1a1a; color: #a78bfa; }
+        .result-table td { color: #c0c0c0; }
+        .result-table tr:hover td { background: rgba(167,139,250,0.05); }
+        .back-link { display: block; color: #a78bfa; font-weight: bold; margin: 2rem 5%; }
+        .back-link:hover { color: #fff; }
+        .arch-box {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .stat-card { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; text-align: center; border: 1px solid #2a2a2a; }
+        .stat-card .stat-number { font-size: 2rem; font-weight: bold; color: #a78bfa; }
+        .stat-card .stat-label { color: #888; font-size: 0.85rem; margin-top: 0.4rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo">
+                <img src="logo.png" alt="Akif Adnan Logo" style="height:60px;vertical-align:middle;" />
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Call Transcription &amp; Analysis</h1>
+            <p class="subtitle">Deepgram-Powered Speech-to-Text with RAG Knowledge Base Integration</p>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">Deepgram</span>
+                <span class="tag">Flask</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">SQLAlchemy</span>
+                <span class="tag">RAG</span>
+                <span class="tag">PII Masking</span>
+            </div>
+        </div>
+
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <div class="detail-section">
+            <h2>Overview</h2>
+            <p>
+                A Flask-based service that transcribes customer support calls via the Deepgram speech-to-text API,
+                enriches each transcript with product and knowledge-base context through a RAG pipeline, and stores
+                structured call records in Supabase — with automatic PII masking applied before any data is written
+                to disk or the database.
+            </p>
+            <p>
+                The system integrates a 1.9 MB product catalogue and a 9.4 MB blog knowledge base as retrieval
+                sources, allowing the analysis layer to surface relevant product information, compatibility notes,
+                and support articles alongside each transcript — providing agents with instant context when reviewing
+                a call.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Key Metrics</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">1.9 MB</div>
+                    <div class="stat-label">Product catalogue integrated into RAG pipeline</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">9.4 MB</div>
+                    <div class="stat-label">Blog / support article knowledge base</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8.6 MB</div>
+                    <div class="stat-label">SQLite vector index for fast retrieval</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">PII masked before storage (names, phones, addresses)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>System Architecture</h2>
+            <div class="arch-box">Call Transcription &amp; Analysis Service
+  ├── transcribe.py        Deepgram API client (STT)
+  ├── app.py               Flask REST API + web UI (23 KB)
+  ├── app_simple.py        Lightweight fallback version
+  │
+  ├── RAG Knowledge Base
+  │     ├── Product Database.csv     (1.9 MB — product catalogue)
+  │     ├── blog_knowledge.json      (3.6 MB — support articles)
+  │     ├── blog_knowledge.sqlite    (8.6 MB — vector index)
+  │     └── load_blog.py             (index builder)
+  │
+  ├── Storage Layer
+  │     ├── Supabase (primary — cloud)
+  │     ├── SQLite  (backup — local)
+  │     └── SQLAlchemy ORM
+  │
+  └── Data Protection
+        └── PII masking applied before write</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Deepgram STT Integration</h4>
+                    <p>Audio recordings are submitted to the Deepgram API which returns speaker-diarised, punctuated transcripts. The integration supports both file upload and streaming modes.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>RAG-Enriched Transcripts</h4>
+                    <p>After transcription, the text is used as a query against the product catalogue and blog knowledge base. Relevant entries are attached to the transcript record, giving reviewers instant context.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>PII Masking</h4>
+                    <p>Before any transcript is stored, a PII masking layer detects and replaces names, phone numbers, addresses, and order identifiers with placeholders — ensuring GDPR compliance.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Dual Storage Backend</h4>
+                    <p>Supabase serves as the primary cloud database via SQLAlchemy ORM. An SQLite database acts as a local fallback and vector index store, ensuring the service works offline for development.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>REST API</h4>
+                    <p>All transcription, retrieval, and storage operations are exposed via a documented REST API, making the service composable with other systems (e.g. call recording platforms, CRM tools).</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Web UI for Review</h4>
+                    <p>A Flask-served HTML interface lets support managers browse stored transcripts, search by keyword, and view the RAG-surfaced product context alongside each call record.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Data Flow</h2>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Step</th><th>Component</th><th>Output</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1. Audio input</td><td>Audio file / recording</td><td>Raw audio bytes</td></tr>
+                    <tr><td>2. Transcription</td><td>Deepgram API</td><td>Diarised text transcript</td></tr>
+                    <tr><td>3. PII masking</td><td>pii_processor</td><td>Sanitised transcript</td></tr>
+                    <tr><td>4. RAG query</td><td>SQLite vector index</td><td>Relevant products + articles</td></tr>
+                    <tr><td>5. Storage</td><td>Supabase + SQLAlchemy</td><td>Structured call record</td></tr>
+                    <tr><td>6. Review</td><td>Flask web UI / REST API</td><td>Searchable transcript store</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#projects" class="btn">
+                <i class="fas fa-arrow-left"></i> All Projects
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. All rights reserved.</p>
+    </footer>
+</body>
+</html>
