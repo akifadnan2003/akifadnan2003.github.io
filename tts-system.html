@@ -136,8 +136,8 @@
   ├── Domain config
   │     Per-country locale, language code, voice name, gender
   └── Outputs
-        CALLS/ (~30 WAV files, one per domain + gender variant)
-        *.mp3  (MP3 variants for web-compatible playback)
+        WAV files — one per locale + gender variant
+        MP3 files — web-compatible playback variants
 
 Google Cloud TTS voices selected per locale:
   de-DE  → Wavenet-B (male) / Wavenet-A (female)
@@ -170,24 +170,16 @@ Google Cloud TTS voices selected per locale:
 
         <div class="detail-section">
             <h2>Language Coverage</h2>
+            <p>The generator supports 17 locales across Western, Central, and Northern Europe, as well as North America. Each locale is mapped to an exact BCP-47 language tag, covering major Western European languages (German, English, French, Italian, Spanish, Dutch, Portuguese, Polish, Swedish) plus additional regional variants.</p>
             <table class="result-table">
                 <thead>
-                    <tr><th>Region</th><th>Locale</th><th>Voices Generated</th></tr>
+                    <tr><th>Language Family</th><th>Variants Covered</th><th>Voices Generated</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Germany</td><td>de-DE</td><td>Male + Female</td></tr>
-                    <tr><td>USA</td><td>en-US</td><td>Male + Female</td></tr>
-                    <tr><td>United Kingdom</td><td>en-GB</td><td>Male + Female</td></tr>
-                    <tr><td>France</td><td>fr-FR</td><td>Male + Female</td></tr>
-                    <tr><td>Italy</td><td>it-IT</td><td>Male + Female</td></tr>
-                    <tr><td>Netherlands</td><td>nl-NL</td><td>Male + Female</td></tr>
-                    <tr><td>Belgium (FR)</td><td>fr-BE</td><td>Male + Female</td></tr>
-                    <tr><td>Belgium (NL)</td><td>nl-BE</td><td>Male + Female</td></tr>
-                    <tr><td>Spain</td><td>es-ES</td><td>Male + Female</td></tr>
-                    <tr><td>Portugal</td><td>pt-PT</td><td>Male + Female</td></tr>
-                    <tr><td>Sweden</td><td>sv-SE</td><td>Male + Female</td></tr>
-                    <tr><td>Poland</td><td>pl-PL</td><td>Male + Female</td></tr>
-                    <tr><td>+ 5 more</td><td>CZ, RO, NO, FI, CH, RU</td><td>Male + Female</td></tr>
+                    <tr><td>Germanic</td><td>German, Dutch, Swedish, Norwegian, English (US/UK)</td><td>Male + Female per variant</td></tr>
+                    <tr><td>Romance</td><td>French, Italian, Spanish, Portuguese, Romanian</td><td>Male + Female per variant</td></tr>
+                    <tr><td>Slavic</td><td>Polish, Czech, Russian</td><td>Male + Female per variant</td></tr>
+                    <tr><td>Other</td><td>Finnish</td><td>Male + Female per variant</td></tr>
                 </tbody>
             </table>
         </div>

@@ -101,10 +101,9 @@
                 to disk or the database.
             </p>
             <p>
-                The system integrates a 1.9 MB product catalogue and a 9.4 MB blog knowledge base as retrieval
-                sources, allowing the analysis layer to surface relevant product information, compatibility notes,
-                and support articles alongside each transcript — providing agents with instant context when reviewing
-                a call.
+                The system integrates a product catalogue and a support knowledge base as retrieval sources,
+                allowing the analysis layer to surface relevant product information and support articles alongside
+                each transcript — providing agents with instant context when reviewing a call.
             </p>
         </div>
 
@@ -112,20 +111,20 @@
             <h2>Key Metrics</h2>
             <div class="stat-grid">
                 <div class="stat-card">
-                    <div class="stat-number">1.9 MB</div>
-                    <div class="stat-label">Product catalogue integrated into RAG pipeline</div>
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">RAG knowledge sources (product catalogue + support articles)</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">9.4 MB</div>
-                    <div class="stat-label">Blog / support article knowledge base</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">8.6 MB</div>
-                    <div class="stat-label">SQLite vector index for fast retrieval</div>
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Storage backends (Supabase cloud + SQLite local)</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">100%</div>
                     <div class="stat-label">PII masked before storage (names, phones, addresses)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">REST</div>
+                    <div class="stat-label">Full API surface for integration with external systems</div>
                 </div>
             </div>
         </div>
@@ -134,13 +133,13 @@
             <h2>System Architecture</h2>
             <div class="arch-box">Call Transcription &amp; Analysis Service
   ├── transcribe.py        Deepgram API client (STT)
-  ├── app.py               Flask REST API + web UI (23 KB)
+  ├── app.py               Flask REST API + web UI
   ├── app_simple.py        Lightweight fallback version
   │
   ├── RAG Knowledge Base
-  │     ├── Product Database.csv     (1.9 MB — product catalogue)
-  │     ├── blog_knowledge.json      (3.6 MB — support articles)
-  │     ├── blog_knowledge.sqlite    (8.6 MB — vector index)
+  │     ├── product catalogue CSV    (structured product data)
+  │     ├── support articles JSON    (knowledge base content)
+  │     ├── SQLite vector index      (fast local retrieval)
   │     └── load_blog.py             (index builder)
   │
   ├── Storage Layer
