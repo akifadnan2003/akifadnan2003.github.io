@@ -111,20 +111,20 @@
             <h2>Key Metrics</h2>
             <div class="stat-grid">
                 <div class="stat-card">
-                    <div class="stat-number">13K+</div>
-                    <div class="stat-label">Ticket embeddings indexed in RAG vector store</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">22 MB</div>
-                    <div class="stat-label">Sanitised historical ticket dataset used for training</div>
-                </div>
-                <div class="stat-card">
                     <div class="stat-number">8</div>
-                    <div class="stat-label">Specialised handler modules</div>
+                    <div class="stat-label">Specialised intent handler modules</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">2</div>
                     <div class="stat-label">LLM providers (Gemini + Claude) with failover</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">RAG</div>
+                    <div class="stat-label">Vector knowledge base powering grounded responses</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Manual steps for standard ticket resolutions</div>
                 </div>
             </div>
         </div>
@@ -141,8 +141,8 @@
         ├── Handler: Escalation       → route to human agent
         └── Handler: Default          → Gemini / Claude free-form
 
-Services: GeminiClient | ZendeskClient | BigQueryClient | LocalRAG
-Data:     embeddings.npy (3.8MB) | sanitised_tickets.json (22MB)</div>
+Services: GeminiClient | HelpdeskClient | BigQueryClient | LocalRAG
+Data:     vector embeddings store | sanitised historical tickets</div>
         </div>
 
         <div class="detail-section">
@@ -154,7 +154,7 @@ Data:     embeddings.npy (3.8MB) | sanitised_tickets.json (22MB)</div>
                 </div>
                 <div class="feature-card">
                     <h4>RAG Knowledge Base</h4>
-                    <p>A local vector store built from 13K+ historical tickets and documentation chunks enables grounded, citation-backed responses. New tickets continuously enrich the store.</p>
+                    <p>A local vector store built from historical tickets and documentation chunks enables grounded, citation-backed responses. New tickets continuously enrich the store.</p>
                 </div>
                 <div class="feature-card">
                     <h4>RMA &amp; Return Handling</h4>
@@ -190,7 +190,7 @@ Data:     embeddings.npy (3.8MB) | sanitised_tickets.json (22MB)</div>
                     <tr><td>RMA / Return</td><td>Return / refund requests</td><td>Policy check → draft + submit</td></tr>
                     <tr><td>Tracking</td><td>Shipment tracking</td><td>Carrier API → status update</td></tr>
                     <tr><td>Technical Support</td><td>Product issues / faults</td><td>RAG → knowledge-based reply</td></tr>
-                    <tr><td>Compatibility</td><td>Part fit / vehicle match</td><td>Product DB → compatibility check</td></tr>
+                    <tr><td>Compatibility</td><td>Product compatibility queries</td><td>Product DB → compatibility check</td></tr>
                     <tr><td>Escalation</td><td>Complex / VIP / repeat</td><td>Route to human agent group</td></tr>
                     <tr><td>Default</td><td>All other intent types</td><td>Gemini / Claude free-form</td></tr>
                 </tbody>
