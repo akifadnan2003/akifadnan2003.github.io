@@ -3,127 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
     <title>Parallel Point-in-Polygon | Akif Adnan</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .detail-hero {
-            padding: 120px 0 60px;
-            text-align: center;
-        }
-        .detail-hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-        .detail-hero .subtitle { color: #b0b0b0; font-size: 1.1rem; margin-bottom: 2rem; }
-        .tag {
-            display: inline-block;
-            background: rgba(74,144,226,0.15);
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin: 0.25rem;
-        }
-        .detail-section {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 5%;
-        }
-        .detail-section h2 {
-            text-align: left;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 1rem;
-        }
-        .detail-section p { color: #c0c0c0; line-height: 1.8; margin-bottom: 1rem; }
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .stat-card {
-            background: #1a1a1a;
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            border-top: 3px solid var(--accent-color);
-        }
-        .stat-card .value { font-size: 2.2rem; font-weight: bold; color: var(--accent-color); }
-        .stat-card .label { font-size: 0.85rem; color: #888; margin-top: 0.25rem; }
-        .result-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-        }
-        .result-table th, .result-table td {
-            border: 1px solid #2a2a2a;
-            padding: 0.75rem 1rem;
-            text-align: center;
-        }
-        .result-table th { background: #1a1a1a; color: var(--accent-color); }
-        .result-table td { color: #c0c0c0; }
-        .result-table tr:hover td { background: rgba(74,144,226,0.05); }
-        .highlight { color: var(--accent-color); font-weight: bold; }
-        .best { color: #4ade80; font-weight: bold; }
-        .back-link {
-            display: block;
-            color: var(--accent-color);
-            font-weight: bold;
-            margin: 2rem 5%;
-        }
-        .back-link:hover { color: #fff; }
-        .chart-img {
-            width: 100%;
-            max-width: 800px;
-            border-radius: 8px;
-            display: block;
-            margin: 1.5rem auto;
-            border: 1px solid #2a2a2a;
-        }
-        .chart-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        @media (max-width: 600px) { .chart-row { grid-template-columns: 1fr; } }
-        .code-box {
-            background: #111;
-            border: 1px solid #2a2a2a;
-            border-radius: 8px;
-            padding: 1.5rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.82rem;
-            color: #b0b0b0;
-            line-height: 1.7;
-            overflow-x: auto;
-        }
-        .kw  { color: #4a90e2; }
-        .cm  { color: #666; font-style: italic; }
-        .polygon-ascii {
-            font-family: 'Courier New', monospace;
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            background: #111;
-            border: 1px solid #2a2a2a;
-            border-radius: 8px;
-            padding: 1.5rem;
-            display: inline-block;
-        }
-    </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="index.html" class="nav-logo">
-                <img src="logo.png" alt="Akif Adnan Logo" style="height:60px;vertical-align:middle;" />
-            </a>
+            <a href="index.html" class="nav-logo"><img src="logo.png" alt="Akif Adnan logo"><span>Akif Adnan</span></a>
             <ul class="nav-links">
                 <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
@@ -244,7 +136,7 @@ executor.shutdown();
         <div class="detail-section">
             <h2>Benchmark Results</h2>
 
-            <h3 style="color:#b0b0b0; margin-bottom:1rem;">Speedup vs Point Count (4 Threads)</h3>
+            <h3 style="color:var(--muted); margin-bottom:1rem;">Speedup vs Point Count (4 Threads)</h3>
             <table class="result-table">
                 <thead>
                     <tr><th>Points</th><th>Sequential (ms)</th><th>Parallel 4t (ms)</th><th>Speedup</th></tr>
@@ -257,7 +149,7 @@ executor.shutdown();
                 </tbody>
             </table>
 
-            <h3 style="color:#b0b0b0; margin: 2rem 0 1rem;">Speedup vs Thread Count</h3>
+            <h3 style="color:var(--muted); margin: 2rem 0 1rem;">Speedup vs Thread Count</h3>
             <table class="result-table">
                 <thead>
                     <tr><th>Points</th><th>Threads</th><th>Sequential (ms)</th><th>Parallel (ms)</th><th>Speedup</th></tr>
@@ -275,11 +167,11 @@ executor.shutdown();
 
             <div class="chart-row">
                 <div>
-                    <p style="text-align:center; color:#888; font-size:0.85rem; margin-bottom:0.5rem;">Sequential vs Parallel Runtime</p>
+                    <p style="text-align:center; color:var(--faint); font-size:0.85rem; margin-bottom:0.5rem;">Sequential vs Parallel Runtime</p>
                     <img src="chart_seq_vs_par.png" alt="Sequential vs Parallel Runtime Chart" class="chart-img" style="margin:0;">
                 </div>
                 <div>
-                    <p style="text-align:center; color:#888; font-size:0.85rem; margin-bottom:0.5rem;">Speedup vs Thread Count</p>
+                    <p style="text-align:center; color:var(--faint); font-size:0.85rem; margin-bottom:0.5rem;">Speedup vs Thread Count</p>
                     <img src="chart_speedup_threads.png" alt="Speedup vs Threads Chart" class="chart-img" style="margin:0;">
                 </div>
             </div>
@@ -299,19 +191,19 @@ executor.shutdown();
   │               │
 (0,0)──────────(4,0)
                 </div>
-                <img src="chart_polygon.png" alt="Polygon Visualisation" style="max-width:320px; border-radius:8px; border:1px solid #2a2a2a;">
+                <img src="chart_polygon.png" alt="Polygon Visualisation" style="max-width:320px; border-radius:8px; border:1px solid var(--line);">
             </div>
 
-            <h3 style="color:#b0b0b0; margin: 2rem 0 1rem;">Correctness Verification</h3>
+            <h3 style="color:var(--muted); margin: 2rem 0 1rem;">Correctness Verification</h3>
             <table class="result-table">
                 <thead><tr><th>Point</th><th>Expected</th><th>Result</th></tr></thead>
                 <tbody>
-                    <tr><td>(1.0, 1.0)</td><td>Inside</td> <td style="color:#4ade80;">Inside ✓</td></tr>
-                    <tr><td>(0.5, 3.0)</td><td>Inside</td> <td style="color:#4ade80;">Inside ✓</td></tr>
-                    <tr><td>(3.0, 1.0)</td><td>Inside</td> <td style="color:#4ade80;">Inside ✓</td></tr>
-                    <tr><td>(3.0, 3.0)</td><td>Outside</td><td style="color:#4ade80;">Outside ✓</td></tr>
-                    <tr><td>(5.0, 1.0)</td><td>Outside</td><td style="color:#4ade80;">Outside ✓</td></tr>
-                    <tr><td>(2.5, 3.0)</td><td>Outside</td><td style="color:#4ade80;">Outside ✓</td></tr>
+                    <tr><td>(1.0, 1.0)</td><td>Inside</td> <td style="color:var(--good);">Inside ✓</td></tr>
+                    <tr><td>(0.5, 3.0)</td><td>Inside</td> <td style="color:var(--good);">Inside ✓</td></tr>
+                    <tr><td>(3.0, 1.0)</td><td>Inside</td> <td style="color:var(--good);">Inside ✓</td></tr>
+                    <tr><td>(3.0, 3.0)</td><td>Outside</td><td style="color:var(--good);">Outside ✓</td></tr>
+                    <tr><td>(5.0, 1.0)</td><td>Outside</td><td style="color:var(--good);">Outside ✓</td></tr>
+                    <tr><td>(2.5, 3.0)</td><td>Outside</td><td style="color:var(--good);">Outside ✓</td></tr>
                 </tbody>
             </table>
         </div>

@@ -3,71 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
     <title>Delivery Tracking System | Akif Adnan</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .detail-hero { padding: 120px 0 60px; text-align: center; }
-        .detail-hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-        .detail-hero .subtitle { color: #b0b0b0; font-size: 1.1rem; margin-bottom: 2rem; }
-        .tag {
-            display: inline-block;
-            background: rgba(56,189,248,0.15);
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin: 0.25rem;
-        }
-        .detail-section { max-width: 900px; margin: 0 auto; padding: 3rem 5%; }
-        .detail-section h2 {
-            text-align: left;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid #38bdf8;
-            padding-left: 1rem;
-        }
-        .detail-section p { color: #c0c0c0; line-height: 1.8; margin-bottom: 1rem; }
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
-        .feature-card { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; border-left: 3px solid #38bdf8; }
-        .feature-card h4 { color: #38bdf8; margin-bottom: 0.5rem; }
-        .feature-card p { color: #b0b0b0; font-size: 0.9rem; margin: 0; }
-        .result-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-        .result-table th, .result-table td { border: 1px solid #2a2a2a; padding: 0.75rem 1rem; text-align: center; }
-        .result-table th { background: #1a1a1a; color: #38bdf8; }
-        .result-table td { color: #c0c0c0; }
-        .result-table tr:hover td { background: rgba(56,189,248,0.05); }
-        .back-link { display: block; color: #38bdf8; font-weight: bold; margin: 2rem 5%; }
-        .back-link:hover { color: #fff; }
-        .arch-box {
-            background: #111;
-            border: 1px solid #2a2a2a;
-            border-radius: 8px;
-            padding: 1.5rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            color: #b0b0b0;
-            line-height: 1.8;
-            overflow-x: auto;
-            white-space: pre;
-        }
-        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
-        .stat-card { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; text-align: center; border: 1px solid #2a2a2a; }
-        .stat-card .stat-number { font-size: 2rem; font-weight: bold; color: #38bdf8; }
-        .stat-card .stat-label { color: #888; font-size: 0.85rem; margin-top: 0.4rem; }
-    </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="index.html" class="nav-logo">
-                <img src="logo.png" alt="Akif Adnan Logo" style="height:60px;vertical-align:middle;" />
-            </a>
+            <a href="index.html" class="nav-logo"><img src="logo.png" alt="Akif Adnan logo"><span>Akif Adnan</span></a>
             <ul class="nav-links">
                 <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
@@ -85,8 +33,7 @@
                 <span class="tag">TypeScript</span>
                 <span class="tag">BigQuery</span>
                 <span class="tag">Google Cloud Run</span>
-                <span class="tag">DHL API</span>
-                <span class="tag">UPS API</span>
+                <span class="tag">Carrier APIs</span>
             </div>
         </div>
 
@@ -97,7 +44,7 @@
         <div class="detail-section">
             <h2>Overview</h2>
             <p>
-                A full-stack delivery tracking platform that consolidates shipment data from DHL and UPS into a
+                A full-stack delivery tracking platform that consolidates shipment data from multiple carriers into a
                 single real-time dashboard. Users can look up any order number and immediately see the current
                 delivery status, carrier event history, and estimated delivery window — without switching between
                 multiple carrier portals.
@@ -114,7 +61,7 @@
             <div class="stat-grid">
                 <div class="stat-card">
                     <div class="stat-number">2</div>
-                    <div class="stat-label">Carriers integrated (DHL + UPS)</div>
+                    <div class="stat-label">Carriers integrated</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">5</div>
@@ -139,8 +86,8 @@
   └── Auth proxy → API (JWT session cookies)
 
 Backend   (FastAPI — Google Cloud Run)
-  ├── DHL Tracking API integration
-  ├── UPS Tracking API (OAuth 2.0)
+  ├── Carrier tracking API integrations
+  ├── OAuth 2.0 token handling for carrier APIs
   ├── Status normalisation → unified 5-state model
   └── BigQuery read / write
 
@@ -153,7 +100,7 @@ Auth      JWT session cookies + role-based access</div>
             <div class="feature-grid">
                 <div class="feature-card">
                     <h4>Unified Multi-Carrier View</h4>
-                    <p>DHL and UPS use different status codes and event formats. The backend normalises both into a single 5-state model so the dashboard always shows consistent, human-readable status regardless of carrier.</p>
+                    <p>Each carrier uses different status codes and event formats. The backend normalises both into a single 5-state model so the dashboard always shows consistent, human-readable status regardless of carrier.</p>
                 </div>
                 <div class="feature-card">
                     <h4>Live Status Updates (SSE)</h4>
@@ -205,7 +152,7 @@ Auth      JWT session cookies + role-based access</div>
                     <tr><td>Backend API</td><td>Python FastAPI</td><td>Google Cloud Run</td></tr>
                     <tr><td>Database</td><td>Google BigQuery</td><td>GCP managed</td></tr>
                     <tr><td>Auth</td><td>JWT session cookies + RBAC</td><td>In-process</td></tr>
-                    <tr><td>Carriers</td><td>DHL API + UPS OAuth 2.0</td><td>External APIs</td></tr>
+                    <tr><td>Carriers</td><td>Carrier REST APIs (incl. OAuth 2.0)</td><td>External APIs</td></tr>
                 </tbody>
             </table>
         </div>
