@@ -1,191 +1,258 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Akif Adnan | AI Engineer</title>
-  <meta name="description" content="Akif Adnan, AI Engineer working on voice agents, LLM applications and data pipelines on Google Cloud.">
-  <meta name="color-scheme" content="light dark">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="./styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akif Adnan · AI Engineer</title>
+<meta name="description" content="Akif Adnan, AI engineer in Bursa, Türkiye. I build AI agents, automation and data platforms that teams use every day.">
+<meta name="theme-color" content="#05080f">
+<link rel="icon" href="logo.png">
+<script>
+  (function () {
+    var d = document.documentElement;
+    var u = (location.search + location.hash).toLowerCase();
+    if (u.indexOf('motion') !== -1) d.classList.add('force-motion');
+    d.classList.add('js');
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce || d.classList.contains('force-motion')) {
+      d.classList.add('intro-on');
+      /* safety net: never let the intro cover the page */
+      setTimeout(function () { d.classList.add('hero-in', 'intro-done'); }, 4000);
+    }
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="akif.webp">
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="#home" class="nav-logo"><img src="logo.png" alt="Akif Adnan logo"><span>Akif Adnan</span></a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+
+<!-- Intro: the logo splits into its two letters, which slide apart to open the page -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__panel intro__panel--l"></div>
+  <div class="intro__panel intro__panel--r"></div>
+  <div class="intro__logo">
+    <img class="intro__a intro__a--grey" src="a-grey.png" alt="" width="471" height="272">
+    <img class="intro__a intro__a--blue" src="a-blue.png" alt="" width="471" height="272">
+  </div>
+  <button class="intro__skip" type="button" id="introSkip">Skip intro</button>
+</div>
+
+<div class="spot" id="spot" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" aria-label="Akif Adnan, back to top">
+    <img src="logo.png" alt="" width="40" height="40">
+    <span>Akif Adnan</span>
+  </a>
+  <nav aria-label="Primary">
+    <ul class="nav__links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="rows mast-wrap">
+      <h1 id="hero-title" class="masthead"><span id="mastText">Akif Adnan</span></h1>
+    </div>
+    <figure class="hero__portrait">
+      <img src="akif.webp" alt="Portrait of Akif Adnan in a dark blazer" width="900" height="1125" fetchpriority="high">
+    </figure>
+    <div class="hero__fade" aria-hidden="true"></div>
+
+    <div class="lines lines-left">
+      <p class="role">AI Engineer <span class="dot" aria-hidden="true"></span> Bursa, Türkiye</p>
+      <a class="line line-big" href="#work">
+        <span class="num">12</span>
+        <span class="txt">projects built, at work and in research</span>
+      </a>
+      <a class="line" href="voice-ai.html">
+        <span class="head">Voice agents that reply in 700&nbsp;ms</span>
+        <span class="sub">How a phone agent stays quick, and stays on script</span>
+      </a>
+      <p class="intro-line">I build AI agents, automation and data platforms that teams use every day.</p>
+    </div>
+
+    <div class="lines lines-right">
+      <a class="line line-inside" href="#services">
+        <span class="kicker">Inside</span>
+        <span class="head">Data platforms, automation, language AI</span>
+      </a>
+      <a class="line" href="nlp.html">
+        <span class="num num-sm">90.9%</span>
+        <span class="txt">Turkish part-of-speech tagging, on the standard treebank</span>
+      </a>
+      <a class="line" href="tts-system.html">
+        <span class="num num-sm">17</span>
+        <span class="txt">languages served by one generated phone system</span>
+      </a>
+      <blockquote class="cover-quote">
+        <p>&ldquo;The best way to predict the future is to invent it.&rdquo;</p>
+        <cite>Alan Kay</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ABOUT: large statements -->
+  <section class="about section" id="about" aria-labelledby="about-title">
+    <h2 class="label" id="about-title"><span class="label__bar" aria-hidden="true"></span>Three things about me</h2>
+    <ol class="statements">
+      <li class="statement" data-reveal-words><span class="statement__n" aria-hidden="true">1</span><p>I turn AI ideas into tools teams use every day.</p></li>
+      <li class="statement" data-reveal-words><span class="statement__n" aria-hidden="true">2</span><p>I like the point where data, code and people meet.</p></li>
+      <li class="statement" data-reveal-words><span class="statement__n" aria-hidden="true">3</span><p>Off the clock, I photograph Bursa at golden&nbsp;hour.</p>
+        <a class="statement__link" href="https://instagram.com/akif.clicks" target="_blank" rel="noopener">See the photos on Instagram, @akif.clicks</a></li>
+    </ol>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="numbers section" aria-labelledby="numbers-title">
+    <h2 class="label" id="numbers-title"><span class="label__bar" aria-hidden="true"></span>In numbers</h2>
+    <ul class="figs">
+      <li class="fig"><span class="fig__n fig__n--fill"><span data-count="12" data-dec="0">12</span></span><span class="fig__t">projects built, at work and in research</span></li>
+      <li class="fig"><span class="fig__n fig__n--line"><span data-count="17" data-dec="0">17</span></span><span class="fig__t">languages served by one generated phone system</span></li>
+      <li class="fig"><span class="fig__n fig__n--fill"><span data-count="90.9" data-dec="1">90.9</span>%</span><span class="fig__t">accuracy on Turkish part-of-speech tagging</span></li>
+      <li class="fig"><span class="fig__n fig__n--line"><span data-count="4.42" data-dec="2">4.42</span>x</span><span class="fig__t">speed-up from parallelising a heavy workload</span></li>
+      <li class="fig"><span class="fig__n fig__n--blue">~<span data-count="700" data-dec="0">700</span><small>ms</small></span><span class="fig__t">for the voice agent to reply to a caller</span></li>
+    </ul>
+  </section>
+
+  <!-- SERVICES: interactive list -->
+  <section class="services section" id="services" aria-labelledby="services-title">
+    <h2 class="label" id="services-title"><span class="label__bar" aria-hidden="true"></span>What I work on</h2>
+    <ul class="svc" id="svc">
+      <li class="svc__item">
+        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-1">
+          <span class="svc__i" aria-hidden="true">01</span>
+          <span class="svc__title">AI agents and automation</span>
+          <span class="svc__plus" aria-hidden="true"></span>
+        </button>
+        <div class="svc__body" id="svc-1"><div class="svc__inner">
+          <p>A voice agent that answers calls, support automation that triages tickets and drafts replies from company knowledge, and scheduled jobs that run on their own.</p>
+          <p class="svc__stack">Twilio · Deepgram · Gemini · RAG · FastAPI</p>
+        </div></div>
+      </li>
+      <li class="svc__item">
+        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-2">
+          <span class="svc__i" aria-hidden="true">02</span>
+          <span class="svc__title">Data platforms and dashboards</span>
+          <span class="svc__plus" aria-hidden="true"></span>
+        </button>
+        <div class="svc__body" id="svc-2"><div class="svc__inner">
+          <p>One live dashboard across several carriers, automatic delay detection, hourly risk scoring and data quality checks on Google Cloud.</p>
+          <p class="svc__stack">FastAPI · Next.js · BigQuery · Cloud Run</p>
+        </div></div>
+      </li>
+      <li class="svc__item">
+        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-3">
+          <span class="svc__i" aria-hidden="true">03</span>
+          <span class="svc__title">Language and voice AI</span>
+          <span class="svc__plus" aria-hidden="true"></span>
+        </button>
+        <div class="svc__body" id="svc-3"><div class="svc__inner">
+          <p>Call transcription, phone menus in 17 languages, multilingual ticket classification and a Turkish part-of-speech tagger.</p>
+          <p class="svc__stack">Speech-to-text · Text-to-speech · NLP</p>
+        </div></div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- WORK -->
+  <section class="work section" id="work" aria-labelledby="work-title">
+    <h2 class="label" id="work-title"><span class="label__bar" aria-hidden="true"></span>Selected work</h2>
+    <ol class="proj">
+      <li><a class="proj__row" href="delivery-tracking.html">
+        <span class="proj__i" aria-hidden="true">01</span>
+        <span class="proj__title">Delivery tracking platform</span>
+        <span class="proj__desc">One live dashboard across several carriers, with automatic delay detection.<span class="proj__stack">FastAPI · Next.js · BigQuery · Cloud Run</span></span>
+      </a></li>
+      <li><a class="proj__row" href="voice-ai.html">
+        <span class="proj__i" aria-hidden="true">02</span>
+        <span class="proj__title">Real-time voice agent</span>
+        <span class="proj__desc">Understands callers and replies in about 700&nbsp;ms. The conversation is steered by code and every reply is checked.<span class="proj__stack">Twilio · Deepgram · Gemini · FastAPI</span></span>
+      </a></li>
+      <li><a class="proj__row" href="support-bot.html">
+        <span class="proj__i" aria-hidden="true">03</span>
+        <span class="proj__title">Support automation</span>
+        <span class="proj__desc">Ticket triage and drafted replies, grounded in company knowledge.<span class="proj__stack">Gemini · RAG · BigQuery</span></span>
+      </a></li>
+      <li><a class="proj__row" href="nlp.html">
+        <span class="proj__i" aria-hidden="true">04</span>
+        <span class="proj__title">Turkish language model</span>
+        <span class="proj__desc">A part-of-speech tagger, 90.9% accurate on the standard treebank.<span class="proj__stack">NLP · Turkish</span></span>
+      </a></li>
+    </ol>
+
+    <div class="also">
+      <h3 class="also__h">Also built</h3>
+      <ul class="also__list">
+        <li><a href="call-transcription.html"><b>Call transcription</b><span>Speech to text for phone calls</span></a></li>
+        <li><a href="tts-system.html"><b>Multilingual phone menus</b><span>One generated system, 17 languages</span></a></li>
+        <li><a href="netprobe.html"><b>NetProbe</b><span>A network protocol on UDP</span></a></li>
+        <li><a href="parallel.html"><b>Parallel point-in-polygon</b><span>4.42x faster than the sequential version</span></a></li>
       </ul>
-    </nav>
-  </header>
+    </div>
+  </section>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="container">
-        <div class="rule"></div>
-        <h1>Akif Adnan</h1>
-        <p class="role">AI Engineer &middot; Voice AI, LLM applications and data engineering</p>
-        <p class="summary">I build voice agents, LLM-based automation and data pipelines on Google Cloud, with a focus on latency, testing and keeping personal data away from models.</p>
-        <div class="pipe" aria-hidden="true">
-          <div class="node"><i></i>speech-to-text</div><div class="line"></div>
-          <div class="node"><i></i>LLM</div><div class="line"></div>
-          <div class="node check"><i></i>output check</div><div class="line"></div>
-          <div class="node"><i></i>text-to-speech</div>
-        </div>
-        <div class="actions">
-          <a href="#projects" class="btn primary">View projects</a>
-          <a href="https://linkedin.com/in/akifadnan2003" target="_blank" rel="noopener" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          <a href="https://github.com/akifadnan2003" target="_blank" rel="noopener" class="btn"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-    </section>
+  <!-- EXPERIENCE -->
+  <section class="exp section" aria-labelledby="exp-title">
+    <h2 class="label" id="exp-title"><span class="label__bar" aria-hidden="true"></span>Experience</h2>
+    <ol class="tl">
+      <li class="tl__item">
+        <p class="tl__when">Sep 2026 – present</p>
+        <h3 class="tl__role">AI Engineer</h3>
+        <p class="tl__what">A real-time voice agent, scheduled automation, and data quality checks on Google Cloud.</p>
+      </li>
+      <li class="tl__item">
+        <p class="tl__when">Oct 2025 – Aug 2026</p>
+        <h3 class="tl__role">Internship trainee</h3>
+        <p class="tl__what">A shipment tracking platform, hourly risk scoring, multilingual ticket classification with Gemini, and a local LLM setup so sensitive data never left local infrastructure.</p>
+      </li>
+      <li class="tl__item">
+        <p class="tl__when">Before</p>
+        <h3 class="tl__role">Computer engineering studies</h3>
+      </li>
+    </ol>
+  </section>
+</main>
 
-    <section id="about">
-      <div class="container about-grid">
-        <div><p class="eyebrow">About</p><h2>What I work on</h2></div>
-        <div class="prose">
-          <p>I'm an AI Engineer working on voice agents, LLM-based automation and data pipelines on Google Cloud.</p><p>Recently I built a real-time voice agent on Twilio, Deepgram and Gemini. The conversation flow is handled by deterministic code, the LLM only writes the wording, and every reply passes an output check before it is spoken. I have also built a shipment tracking platform with FastAPI, Next.js and BigQuery, a rule-based risk scoring service, and a multilingual ticket classification service.</p><p>I care most about the parts that make AI systems dependable: latency, testing against failure, and keeping personal data away from models.</p>
-        </div>
-      </div>
-    </section>
+<!-- CONTACT -->
+<footer class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="contact__band" aria-hidden="true">
+    <div class="row row--line row--small" data-speed="22" data-dir="-1"><div class="row__track"><span class="row__unit">Let's talk &middot; Write to me &middot;&nbsp;</span></div></div>
+  </div>
+  <div class="contact__inner">
+    <h2 class="contact__title" id="contact-title">Have something in mind? Write to me.</h2>
+    <a class="contact__mail" id="mail" href="mailto:akif.py@gmail.com"><span class="contact__mail-text">akif.py@gmail.com</span></a>
+    <div class="contact__actions">
+      <button class="copy" type="button" id="copyMail" data-email="akif.py@gmail.com">Copy email</button>
+      <span class="copy__status" id="copyStatus" role="status" aria-live="polite"></span>
+    </div>
+    <ul class="contact__links">
+      <li><a href="https://www.linkedin.com/in/akifadnan2003" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/akifadnan2003" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://instagram.com/akif.clicks" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+  </div>
+  <div class="contact__base">
+    <img src="logo.png" alt="" width="28" height="28">
+    <span>Akif Adnan · AI Engineer · Bursa, Türkiye</span>
+    <span class="contact__year">© 2026</span>
+  </div>
+</footer>
 
-    <section id="experience">
-      <div class="container">
-        <p class="eyebrow">Experience</p>
-        <h2>Where I have worked</h2>
-        <div class="timeline">
-          <div class="job">
-            <div class="when">Sep 2026 &ndash; Present &middot; Bursa, T&uuml;rkiye</div>
-            <div><h3>AI Engineer</h3><ul><li>Real-time voice agent with Twilio, Deepgram, Gemini, FastAPI and Cloud Run. Code-controlled conversation flow, LLM-generated wording and an output safety check before text-to-speech. Personal data is masked before any model call.</li> <li>Scheduled automation jobs on a FastAPI and BigQuery backend for claim emails, delay notifications and exception email parsing.</li> <li>Data quality checks for a Next.js and BigQuery analytics dashboard.</li></ul></div>
-          </div>
-          <div class="job">
-            <div class="when">Oct 2025 &ndash; Aug 2026</div>
-            <div><h3>Internship Trainee</h3><ul><li>Shipment tracking platform with FastAPI, Next.js, BigQuery and Cloud Run, with role-based access and scheduled jobs.</li> <li>Rule-based risk scoring service running hourly on Cloud Run, with replay testing on historical data.</li> <li>Ticket translation and classification service with Gemini, Cloud Tasks and Cloud DLP.</li> <li>Text classification with a locally hosted LLM (Ollama), so data never left local infrastructure.</li></ul></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="container">
-        <p class="eyebrow">Skills</p>
-        <h2>Tools I use</h2>
-        <div class="skills-grid">
-          <div class="skill-category"><h3>Languages</h3><p>Python, TypeScript, JavaScript, SQL, Java, C++</p></div>
-          <div class="skill-category"><h3>Frameworks & Libraries</h3><p>FastAPI, Next.js, React.js, Node.js, Flask</p></div>
-          <div class="skill-category"><h3>AI &amp; LLM</h3><p>Gemini / Vertex AI, RAG, Deepgram, Twilio, Ollama, Scikit-learn, TensorFlow, Pandas</p></div>
-          <div class="skill-category"><h3>Cloud &amp; Data</h3><p>Google Cloud (Cloud Run, BigQuery, Cloud Tasks, Cloud DLP), Firebase, PostgreSQL, AWS</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <p class="eyebrow">Projects</p>
-        <h2>Selected work</h2>
-        <h3 class="project-group-title">Professional</h3>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="head"><i class="fas fa-brain" aria-hidden="true"></i><h3>Voice AI Assistant</h3></div>
-            <p>Multi-modal voice intelligence platform — real-time call agent via Twilio, Deepgram STT, RAG-grounded Q&amp;A over product and order knowledge bases, and GDPR-compliant PII masking before storage.</p>
-            <div class="chips"><span class="chip">Python</span><span class="chip">Deepgram</span><span class="chip">Twilio</span><span class="chip">RAG</span></div>
-            <div class="project-links"><a href="voice-ai.html">Details &amp; Results</a></div>
-          </article>
-          <article class="project-card">
-            <div class="head"><i class="fas fa-truck-fast" aria-hidden="true"></i><h3>Delivery Tracking System</h3></div>
-            <p>Full-stack delivery tracking platform integrating multiple carrier APIs into a single real-time dashboard, with live status updates, carrier event history, and automated delay detection.</p>
-            <div class="chips"><span class="chip">FastAPI</span><span class="chip">Next.js</span><span class="chip">BigQuery</span><span class="chip">GCP</span></div>
-            <div class="project-links"><a href="delivery-tracking.html">Details &amp; Results</a></div>
-          </article>
-          <article class="project-card">
-            <div class="head"><i class="fas fa-headset" aria-hidden="true"></i><h3>Support Automation Bot</h3></div>
-            <p>AI-powered ticket triage and response system that automatically routes, categorises, and resolves support tickets using a RAG pipeline, with BigQuery analytics integration.</p>
-            <div class="chips"><span class="chip">Python</span><span class="chip">Gemini AI</span><span class="chip">BigQuery</span><span class="chip">RAG</span></div>
-            <div class="project-links"><a href="support-bot.html">Details &amp; Results</a></div>
-          </article>
-          <article class="project-card">
-            <div class="head"><i class="fas fa-comments" aria-hidden="true"></i><h3>Call Transcription &amp; Analysis</h3></div>
-            <p>Deepgram-powered STT service that transcribes support calls, enriches each transcript with RAG-retrieved product and blog context, and stores PII-masked records in Supabase.</p>
-            <div class="chips"><span class="chip">Python</span><span class="chip">Deepgram</span><span class="chip">Supabase</span><span class="chip">Flask</span></div>
-            <div class="project-links"><a href="call-transcription.html">Details &amp; Results</a></div>
-          </article>
-          <article class="project-card">
-            <div class="head"><i class="fas fa-volume-high" aria-hidden="true"></i><h3>IVR Voice Generation System</h3></div>
-            <p>Automated generator that produces call-centre IVR greetings for 20+ country domains across 17 languages using Google Cloud TTS — dual gender variants in both MP3 and WAV formats, zero manual recording.</p>
-            <div class="chips"><span class="chip">Python</span><span class="chip">Google TTS</span><span class="chip">Multi-language</span><span class="chip">IVR</span></div>
-            <div class="project-links"><a href="tts-system.html">Details &amp; Results</a></div>
-          </article>
-        </div>
-        <h3 class="project-group-title">Academic and personal</h3>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="head"><i class="fas fa-chart-line" aria-hidden="true"></i><h3>Social Media Trend Analysis</h3></div>
-            <p>Developed an end-to-end AI app to predict a tweet's potential like count using a REST API with Python/FastAPI and a dynamic frontend with React.js.</p>
-            <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">React.js</span><span class="chip">ML</span></div>
-            <div class="project-links"><a href="https://github.com/akifadnan2003" target="_blank" rel="noopener">GitHub</a></div>
-          </article>
-          <article class="project-card">
-            <div class="head"><i class="fas fa-cloud" aria-hidden="true"></i><h3>AWS Cloud Architecture for High-Traffic Portal</h3></div>
-            <p>Designed a secure, scalable, and highly available AWS architecture for a WordPress portal capable of handling up to 10,000 concurrent users.</p>
-            <div class="chips"><span class="chip">AWS</span><span class="chip">EC2</span><span class="chip">RDS</span><span class="chip">CloudFront</span></div>
-            <div class="project-links"><a href="https://github.com/akifadnan2003" target="_blank" rel="noopener">GitHub</a></div>
-          </article>
-          <article class="project-card">
-            <div class="head"><i class="fas fa-seedling" aria-hidden="true"></i><h3>Rice Leaf Disease Classification</h3></div>
-            <p>Implemented and trained multiple pre-trained CNN models (Xception, VGG16, etc.) using Python, TensorFlow, and Keras for image classification.</p>
-            <div class="chips"><span class="chip">TensorFlow</span><span class="chip">Keras</span><span class="chip">CNN</span><span class="chip">Python</span></div>
-            <div class="project-links"><a href="https://github.com/akifadnan2003" target="_blank" rel="noopener">GitHub</a></div>
-          </article>
-          <article class="project-card">
-            <div class="head"><i class="fas fa-shield-halved" aria-hidden="true"></i><h3>Advanced Secure File Transfer System</h3></div>
-            <p>Developed a secure Python application using Scapy for low-level IP header manipulation, with AES/RSA encryption and SHA-256 hashing.</p>
-            <div class="chips"><span class="chip">Python</span><span class="chip">Scapy</span><span class="chip">AES/RSA</span><span class="chip">SHA-256</span></div>
-            <div class="project-links"><a href="https://github.com/akifadnan2003" target="_blank" rel="noopener">GitHub</a></div>
-          </article>
-          <article class="project-card">
-            <div class="head"><i class="fas fa-network-wired" aria-hidden="true"></i><h3>NetProbe — Custom UDP Protocol</h3></div>
-            <p>Built a reliable file-transfer protocol on top of raw UDP sockets with sequence numbers, ACKs, CRC32 integrity, multi-client support, PCAP export, and a real-time Flask dashboard.</p>
-            <div class="chips"><span class="chip">Python</span><span class="chip">UDP Sockets</span><span class="chip">Flask</span><span class="chip">PCAP</span></div>
-            <div class="project-links"><a href="netprobe.html">Details &amp; Results</a><a href="https://github.com/akifadnan2003/Net-Probe" target="_blank" rel="noopener">GitHub</a></div>
-          </article>
-          <article class="project-card">
-            <div class="head"><i class="fas fa-language" aria-hidden="true"></i><h3>Turkish NLP — Morphological Disambiguation</h3></div>
-            <p>Trained a CRF sequence model on the UD Turkish-IMST Treebank (3,435 sentences) achieving 90.93% accuracy and 90.80% weighted F1 for Universal POS tagging. Includes a Flask web demo.</p>
-            <div class="chips"><span class="chip">Python</span><span class="chip">CRF</span><span class="chip">CoNLL-U</span><span class="chip">Flask</span></div>
-            <div class="project-links"><a href="nlp.html">Details &amp; Results</a></div>
-          </article>
-          <article class="project-card">
-            <div class="head"><i class="fas fa-microchip" aria-hidden="true"></i><h3>Parallel Point-in-Polygon (Java)</h3></div>
-            <p>Parallelised Ray Casting algorithm using Java ExecutorService across a concave L-shape polygon. Achieved up to 4.42× speedup with 8 threads on 5 million points, with 100% correctness.</p>
-            <div class="chips"><span class="chip">Java</span><span class="chip">ExecutorService</span><span class="chip">Swing</span><span class="chip">Parallel</span></div>
-            <div class="project-links"><a href="parallel.html">Details &amp; Results</a><a href="https://drive.google.com/file/d/1pnuTolDeu92ZCpKlFoyhwuiBukSR1Ox9/view?usp=sharing" target="_blank" rel="noopener">Demo Video</a></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="container">
-        <p class="eyebrow">Contact</p>
-        <h2>Get in touch</h2>
-        <p>The best way to reach me is by email or on LinkedIn.</p>
-        <div class="actions">
-          <a href="mailto:akif.py@gmail.com" class="btn primary"><i class="fas fa-envelope"></i> Email</a>
-          <a href="https://linkedin.com/in/akifadnan2003" target="_blank" rel="noopener" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          <a href="https://github.com/akifadnan2003" target="_blank" rel="noopener" class="btn"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container"><span>&copy; 2026 Akif Adnan</span><span>Bursa, T&uuml;rkiye</span></div>
-  </footer>
+<script src="cover.js" defer></script>
+<script src="home.js" defer></script>
 </body>
 </html>
