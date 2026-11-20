@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Clickstream Analytics Dashboard | Akif Adnan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo"><img src="logo.png" alt="Akif Adnan logo"><span>Akif Adnan</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#work">Work</a></li>
+                <li><a href="index.html#experience">Log</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Clickstream Analytics Dashboard</h1>
+            <p class="subtitle">What visitors do on an online store, from the first page view to the order</p>
+            <div>
+                <span class="tag">Clickstream</span>
+                <span class="tag">BigQuery</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Cloud Run</span>
+            </div>
+        </div>
+
+        <a href="index.html#work" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <div class="detail-section">
+            <h2>Overview</h2>
+            <p>An online store records every click: pages viewed, searches, filters, menu and banner clicks, products added to the basket. On their own these events are just noise. This dashboard turns them into answers the product, sales and marketing teams can act on: where visitors drop off, what they search for and do not find, and which products are looked at but not bought.</p>
+            <p>I built it together with a teammate. My part was the data pipeline that keeps the reporting tables fresh, single sign-on, deployment, the Turkish and English interface, and checking that the numbers on screen match the sales records.</p>
+        </div>
+
+        <div class="detail-section">
+            <h2>What it shows</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Daily funnel</h4>
+                    <p>How many visitors move from a product page to the basket, the checkout and the order, day by day, so a drop shows up the morning after it happens.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Searches that find nothing</h4>
+                    <p>The search terms that return no results. Each one is a product people wanted and could not find on the site.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Filters that lead nowhere</h4>
+                    <p>Filter combinations that end on an empty page, split by brand, so the catalogue and the filters can be fixed.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Viewed but not bought</h4>
+                    <p>Products with many views and few orders, a starting point for checking price, photos or stock.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Recommendations and cross-sell</h4>
+                    <p>How often suggested products are clicked and bought, so it is clear whether the suggestions earn their place on the page.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Business buyers hiding as guests</h4>
+                    <p>Visitors who browse and order like trade customers but are not registered as one, a list the sales team can follow up.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>How it works</h2>
+            <div class="arch-box">Site events (clickstream) + sales records
+  └── Reporting tables in BigQuery, rebuilt every night by scheduled SQL
+
+Web app (Next.js, TypeScript, Cloud Run)
+  ├── Reads only the reporting tables, never the raw events
+  ├── Date, store and country filters on every page
+  ├── Turkish / English interface
+  └── Single sign-on through the company login</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>What I learnt</h2>
+            <p>An empty chart is usually a data problem, not a chart problem. When the panel went blank for a few days, the events were still there; the nightly job that builds the reporting tables had stopped on one failing step. Fixing that job mattered more than any new feature.</p>
+            <p>Before a number goes on a dashboard, write down exactly how it is counted, including repeat clicks and bots. That conversation with the teams who will use it is half the work.</p>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#work" class="btn">
+                <i class="fas fa-arrow-left"></i> All Projects
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Akif Adnan</p>
+    </footer>
+</body>
+</html>

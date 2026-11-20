@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Akif Adnan · AI Engineer</title>
-<meta name="description" content="Akif Adnan, AI engineer in Bursa, Türkiye. I build AI agents, automation and data platforms that teams use every day.">
+<meta name="description" content="Akif Adnan, AI engineer in Bursa, Türkiye. I build clickstream analytics, AI agents and data platforms that teams use every day.">
 <meta name="theme-color" content="#05080f">
 <link rel="icon" href="logo.png">
 <script>
@@ -78,25 +78,25 @@
         <span class="num">12</span>
         <span class="txt">projects built, at work and in research</span>
       </a>
-      <a class="line" href="voice-ai.html">
-        <span class="head">Voice agents that reply in 700&nbsp;ms</span>
-        <span class="sub">How a phone agent stays quick, and stays on script</span>
+      <a class="line" href="clickstream.html">
+        <span class="head">What the clicks say about sales</span>
+        <span class="sub">Clickstream analytics, from the first page view to the order</span>
       </a>
-      <p class="intro-line">I build AI agents, automation and data platforms that teams use every day.</p>
+      <p class="intro-line">I build clickstream analytics, AI agents and data platforms that teams use every day.</p>
     </div>
 
     <div class="lines lines-right">
       <a class="line line-inside" href="#services">
         <span class="kicker">Inside</span>
-        <span class="head">Data platforms, automation, language AI</span>
+        <span class="head">Clickstream analytics, AI agents, data platforms</span>
       </a>
       <a class="line" href="nlp.html">
         <span class="num num-sm">90.9%</span>
         <span class="txt">Turkish part-of-speech tagging, on the standard treebank</span>
       </a>
-      <a class="line" href="tts-system.html">
-        <span class="num num-sm">17</span>
-        <span class="txt">languages served by one generated phone system</span>
+      <a class="line" href="voice-ai.html">
+        <span class="num num-sm">~700&nbsp;ms</span>
+        <span class="txt">for the voice agent to reply to a caller</span>
       </a>
       <blockquote class="cover-quote">
         <p>&ldquo;The best way to predict the future is to invent it.&rdquo;</p>
@@ -110,7 +110,7 @@
     <h2 class="label" id="about-title"><span class="label__bar" aria-hidden="true"></span>Three things about me</h2>
     <ol class="statements">
       <li class="statement" data-reveal-words><span class="statement__n" aria-hidden="true">1</span><p>I turn AI ideas into tools teams use every day.</p></li>
-      <li class="statement" data-reveal-words><span class="statement__n" aria-hidden="true">2</span><p>I like the point where data, code and people meet.</p></li>
+      <li class="statement" data-reveal-words><span class="statement__n" aria-hidden="true">2</span><p>I like finding out what people really do on a website.</p></li>
       <li class="statement" data-reveal-words><span class="statement__n" aria-hidden="true">3</span><p>Off the clock, I photograph Bursa at golden&nbsp;hour.</p>
         <a class="statement__link" href="https://instagram.com/akif.clicks" target="_blank" rel="noopener">See the photos on Instagram, @akif.clicks</a></li>
     </ol>
@@ -133,8 +133,19 @@
     <h2 class="label" id="services-title"><span class="label__bar" aria-hidden="true"></span>What I work on</h2>
     <ul class="svc" id="svc">
       <li class="svc__item">
-        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-1">
+        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-0">
           <span class="svc__i" aria-hidden="true">01</span>
+          <span class="svc__title">Clickstream and web analytics</span>
+          <span class="svc__plus" aria-hidden="true"></span>
+        </button>
+        <div class="svc__body" id="svc-0"><div class="svc__inner">
+          <p>Site events turned into funnels, search and filter reports and channel attribution, so product and marketing teams can see where visitors drop off, what they look for and do not find, and which channel really brought each sale.</p>
+          <p class="svc__stack">GA4 · BigQuery · SQL · Next.js</p>
+        </div></div>
+      </li>
+      <li class="svc__item">
+        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-1">
+          <span class="svc__i" aria-hidden="true">02</span>
           <span class="svc__title">AI agents and automation</span>
           <span class="svc__plus" aria-hidden="true"></span>
         </button>
@@ -145,18 +156,18 @@
       </li>
       <li class="svc__item">
         <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-2">
-          <span class="svc__i" aria-hidden="true">02</span>
+          <span class="svc__i" aria-hidden="true">03</span>
           <span class="svc__title">Data platforms and dashboards</span>
           <span class="svc__plus" aria-hidden="true"></span>
         </button>
         <div class="svc__body" id="svc-2"><div class="svc__inner">
-          <p>One live dashboard across several carriers, automatic delay detection, hourly risk scoring and data quality checks on Google Cloud.</p>
+          <p>Reporting tables that rebuild every night, a live delivery dashboard across several carriers, hourly risk scoring and data quality checks on Google Cloud.</p>
           <p class="svc__stack">FastAPI · Next.js · BigQuery · Cloud Run</p>
         </div></div>
       </li>
       <li class="svc__item">
         <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-3">
-          <span class="svc__i" aria-hidden="true">03</span>
+          <span class="svc__i" aria-hidden="true">04</span>
           <span class="svc__title">Language and voice AI</span>
           <span class="svc__plus" aria-hidden="true"></span>
         </button>
@@ -172,31 +183,37 @@
   <section class="work section" id="work" aria-labelledby="work-title">
     <h2 class="label" id="work-title"><span class="label__bar" aria-hidden="true"></span>Selected work</h2>
     <ol class="proj">
-      <li><a class="proj__row" href="delivery-tracking.html">
+      <li><a class="proj__row" href="clickstream.html">
         <span class="proj__i" aria-hidden="true">01</span>
+        <span class="proj__title">Clickstream analytics dashboard</span>
+        <span class="proj__desc">Raw site events turned into daily funnels, searches that find nothing, filters that lead nowhere, and recommendation and cross-sell results. Built with a teammate, in Turkish and English.<span class="proj__stack">BigQuery · SQL · Next.js · Cloud Run</span></span>
+      </a></li>
+      <li><a class="proj__row" href="channel-attribution.html">
+        <span class="proj__i" aria-hidden="true">02</span>
+        <span class="proj__title">Sales by channel</span>
+        <span class="proj__desc">For every product, how much of its sales came from ads, search, direct visits, email, referrals and AI assistants. It also flags products that live on ads alone.<span class="proj__stack">GA4 · BigQuery · Next.js</span></span>
+      </a></li>
+      <li><a class="proj__row" href="delivery-tracking.html">
+        <span class="proj__i" aria-hidden="true">03</span>
         <span class="proj__title">Delivery tracking platform</span>
         <span class="proj__desc">One live dashboard across several carriers, with automatic delay detection.<span class="proj__stack">FastAPI · Next.js · BigQuery · Cloud Run</span></span>
       </a></li>
       <li><a class="proj__row" href="voice-ai.html">
-        <span class="proj__i" aria-hidden="true">02</span>
+        <span class="proj__i" aria-hidden="true">04</span>
         <span class="proj__title">Real-time voice agent</span>
         <span class="proj__desc">Understands callers and replies in about 700&nbsp;ms. The conversation is steered by code and every reply is checked.<span class="proj__stack">Twilio · Deepgram · Gemini · FastAPI</span></span>
       </a></li>
       <li><a class="proj__row" href="support-bot.html">
-        <span class="proj__i" aria-hidden="true">03</span>
+        <span class="proj__i" aria-hidden="true">05</span>
         <span class="proj__title">Support automation</span>
         <span class="proj__desc">Ticket triage and drafted replies, grounded in company knowledge.<span class="proj__stack">Gemini · RAG · BigQuery</span></span>
-      </a></li>
-      <li><a class="proj__row" href="nlp.html">
-        <span class="proj__i" aria-hidden="true">04</span>
-        <span class="proj__title">Turkish language model</span>
-        <span class="proj__desc">A part-of-speech tagger, 90.9% accurate on the standard treebank.<span class="proj__stack">NLP · Turkish</span></span>
       </a></li>
     </ol>
 
     <div class="also">
       <h3 class="also__h">Also built</h3>
       <ul class="also__list">
+        <li><a href="nlp.html"><b>Turkish language model</b><span>Part-of-speech tagging, 90.9% accurate</span></a></li>
         <li><a href="call-transcription.html"><b>Call transcription</b><span>Speech to text for phone calls</span></a></li>
         <li><a href="tts-system.html"><b>Multilingual phone menus</b><span>One generated system, 17 languages</span></a></li>
         <li><a href="netprobe.html"><b>NetProbe</b><span>A network protocol on UDP</span></a></li>
@@ -206,13 +223,13 @@
   </section>
 
   <!-- EXPERIENCE -->
-  <section class="exp section" aria-labelledby="exp-title">
+  <section class="exp section" id="experience" aria-labelledby="exp-title">
     <h2 class="label" id="exp-title"><span class="label__bar" aria-hidden="true"></span>Experience</h2>
     <ol class="tl">
       <li class="tl__item">
         <p class="tl__when">Sep 2026 – present</p>
         <h3 class="tl__role">AI Engineer</h3>
-        <p class="tl__what">A real-time voice agent, scheduled automation, and data quality checks on Google Cloud.</p>
+        <p class="tl__what">Clickstream and sales-channel analytics for an online store, a real-time voice agent, scheduled automation and data quality checks on Google Cloud.</p>
       </li>
       <li class="tl__item">
         <p class="tl__when">Oct 2025 – Aug 2026</p>

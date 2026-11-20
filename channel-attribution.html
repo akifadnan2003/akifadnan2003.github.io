@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Sales by Channel | Akif Adnan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo"><img src="logo.png" alt="Akif Adnan logo"><span>Akif Adnan</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#work">Work</a></li>
+                <li><a href="index.html#experience">Log</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Sales by Channel</h1>
+            <p class="subtitle">For every product: which share of its sales came from ads, search, direct visits, email, referrals and AI assistants</p>
+            <div>
+                <span class="tag">Google Analytics 4</span>
+                <span class="tag">BigQuery</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Cloud Run</span>
+            </div>
+        </div>
+
+        <a href="index.html#work" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+
+        <div class="detail-section">
+            <h2>Overview</h2>
+            <p>Marketing reports often list dozens of traffic sources that nobody has grouped, and they answer nothing. The question leadership actually asked was simple: for each product, how much of its sales comes from ads, and how much comes on its own?</p>
+            <p>This app answers that. Every order is matched to the visit that led to it, the visit is put into one clear channel, and every product gets a single bar that shows its channel mix.</p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Channels</h2>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Channel</th><th>What counts</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Ads</td><td>Paid search, shopping and display campaigns</td></tr>
+                    <tr><td>Organic</td><td>Unpaid search results and social posts</td></tr>
+                    <tr><td>Direct</td><td>Typed-in visits and searches for the brand name</td></tr>
+                    <tr><td>Email</td><td>Newsletters and order or shipping emails</td></tr>
+                    <tr><td>Referral</td><td>Links from other sites, payment and review platforms</td></tr>
+                    <tr><td>AI assistants</td><td>Visits from ChatGPT, Gemini, Perplexity, Copilot and similar tools</td></tr>
+                    <tr><td>Unknown</td><td>Kept as its own grey segment, never folded into another channel</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section">
+            <h2>What it shows</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Products ranked by sales</h4>
+                    <p>Each product with a 100% bar across the channels, searchable, with a drill-down into its monthly trend and the raw source, medium and campaign behind it.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Signals</h4>
+                    <p>Flags such as ads-dependent, organic star or channel mismatch, so outliers stand out. An ads-only best seller may need content and SEO; a product that sells without ads raises the question of whether its ads pay off.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Ad spend against sales</h4>
+                    <p>Shopping campaign cost per product next to the sales those campaigns brought, with a plain label from losing money to strong.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Business customers</h4>
+                    <p>Each trade customer marked as new, growing, stable, declining, paused or lost, using the same fixed rules whatever the date filter.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Stores and countries</h4>
+                    <p>The same view by the store a customer bought from or the country the order was delivered to.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Order list and export</h4>
+                    <p>Every order with its channel and campaign, searchable and exportable to CSV.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>How it works</h2>
+            <div class="arch-box">Google Analytics 4 export (purchase events, last-click source)
+  + order lines and customer data
+  └── One reporting table in BigQuery, rebuilt daily after the sales data lands
+        ├── Channel rules in a single SQL CASE, easy to change
+        └── Check query: totals must match the sales records
+
+Web app (Next.js, TypeScript, Cloud Run, company single sign-on)</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>What I learnt</h2>
+            <p>Attribution fields that look trustworthy often contradict each other. Going back to the raw analytics events, and keeping the raw values on every row, made it possible to explain every bar on the screen.</p>
+            <p>Unknown should stay visible. Hiding it inside Direct makes the chart prettier and the decisions worse.</p>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#work" class="btn">
+                <i class="fas fa-arrow-left"></i> All Projects
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Akif Adnan</p>
+    </footer>
+</body>
+</html>
