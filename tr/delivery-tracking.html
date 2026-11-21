@@ -27,7 +27,7 @@
     <main>
         <div class="detail-hero">
             <h1>Teslimat Takip Sistemi</h1>
-            <p class="subtitle">Birden fazla kargo firması için canlı durum güncellemeli, gerçek zamanlı teslimat takip paneli</p>
+            <p class="subtitle">Birden fazla kargo firması için canlı durum güncellemeli, gerçek zamanlı teslimat takip dashboard'u</p>
             <div>
                 <span class="tag">FastAPI</span>
                 <span class="tag">Next.js 16</span>
@@ -46,7 +46,7 @@
         <div class="detail-section">
             <h2>Genel bakış</h2>
             <p>
-                Birden fazla kargo firmasının gönderi verilerini tek bir gerçek zamanlı panelde toplayan, önyüzü ve
+                Birden fazla kargo firmasının gönderi verilerini tek bir gerçek zamanlı dashboard'da toplayan, önyüzü ve
                 arka ucuyla eksiksiz bir teslimat takip platformu. Kullanıcılar herhangi bir sipariş numarasını arayıp
                 güncel teslimat durumunu, kargo firmasının olay geçmişini ve tahmini teslimat aralığını hemen
                 görebiliyor; farklı kargo portalları arasında gidip gelmeye gerek kalmıyor.
@@ -83,7 +83,7 @@
         <div class="detail-section">
             <h2>Mimari</h2>
             <div class="arch-box">Önyüz  (Next.js 16 + React 19 + TypeScript — Vercel)
-  ├── Sipariş arama + canlı durum paneli
+  ├── Sipariş arama + canlı durum dashboard'u
   ├── Gönderi başına olay zaman çizelgesi
   └── Kimlik doğrulama proxy'si → API (JWT oturum çerezleri)
 
@@ -102,11 +102,11 @@ Kimlik doğrulama  JWT oturum çerezleri + rol tabanlı erişim</div>
             <div class="feature-grid">
                 <div class="feature-card">
                     <h4>Tüm kargo firmaları tek ekranda</h4>
-                    <p>Her kargo firması farklı durum kodları ve olay formatları kullanıyor. Arka uç ikisini de ortak bir 5 durumlu modele çeviriyor; böylece panel, kargo firması hangisi olursa olsun her zaman tutarlı ve okunabilir bir durum gösteriyor.</p>
+                    <p>Her kargo firması farklı durum kodları ve olay formatları kullanıyor. Arka uç ikisini de ortak bir 5 durumlu modele çeviriyor; böylece dashboard, kargo firması hangisi olursa olsun her zaman tutarlı ve okunabilir bir durum gösteriyor.</p>
                 </div>
                 <div class="feature-card">
                     <h4>Canlı durum güncellemeleri (SSE)</h4>
-                    <p>Server-Sent Events, takip güncellemelerini doğrudan tarayıcıya gönderiyor. Durum değişiklikleri, sürekli sorgulama ya da sayfa yenileme olmadan anında görünüyor ve panel gerçek zamanlı çalışıyor.</p>
+                    <p>Server-Sent Events, takip güncellemelerini doğrudan tarayıcıya gönderiyor. Durum değişiklikleri, sürekli sorgulama ya da sayfa yenileme olmadan anında görünüyor ve dashboard gerçek zamanlı çalışıyor.</p>
                 </div>
                 <div class="feature-card">
                     <h4>Tam olay geçmişi</h4>
@@ -114,7 +114,7 @@ Kimlik doğrulama  JWT oturum çerezleri + rol tabanlı erişim</div>
                 </div>
                 <div class="feature-card">
                     <h4>Gecikme tespiti</h4>
-                    <p>Beklenen teslimat aralığını aşan gönderiler otomatik olarak gecikmiş diye işaretleniyor. Sistem, kargo firmasının güncel durumunu ilk tahmini teslim tarihiyle karşılaştırıyor ve geciken siparişleri panelin en üstüne taşıyor.</p>
+                    <p>Beklenen teslimat aralığını aşan gönderiler otomatik olarak gecikmiş diye işaretleniyor. Sistem, kargo firmasının güncel durumunu ilk tahmini teslim tarihiyle karşılaştırıyor ve geciken siparişleri dashboard'un en üstüne taşıyor.</p>
                 </div>
                 <div class="feature-card">
                     <h4>Güvenli kimlik doğrulama</h4>
