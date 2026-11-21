@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Yapay Zekâ Sesli Asistan | Akif Adnan</title>
+    <link rel="alternate" hreflang="en" href="https://akifadnan2003.github.io/voice-ai.html">
+    <link rel="alternate" hreflang="tr" href="https://akifadnan2003.github.io/tr/voice-ai.html">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo"><img src="../logo.png" alt="Akif Adnan logosu"><span>Akif Adnan</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#work">İşler</a></li>
+                <li><a href="index.html#experience">Deneyim</a></li>
+                <li><a href="index.html#contact">İletişim</a></li>
+                <li><a href="../voice-ai.html" hreflang="en" lang="en" class="lang-switch">EN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Yapay Zekâ Sesli Asistan</h1>
+            <p class="subtitle">Çok kanallı ses platformu: transkripsiyon, RAG ve gerçek zamanlı ajan</p>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">Deepgram</span>
+                <span class="tag">Twilio</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">RAG</span>
+                <span class="tag">Kişisel veri maskeleme</span>
+            </div>
+        </div>
+
+        <a href="index.html#work" class="back-link">
+            <i class="fas fa-arrow-left"></i> Projelere dön
+        </a>
+
+        <div class="detail-section">
+            <h2>Genel bakış</h2>
+            <p>
+                Müşteri aramalarının her aşamasını ele alan, önyüzü ve arka ucuyla eksiksiz bir sesli yapay zekâ
+                platformu: telefonda gerçek zamanlı sesli görüşme, otomatik konuşma transkripsiyonu, bilgi tabanına
+                dayalı soru-cevap ve görüşme sonrası analiz. Sistem, ürün ve sipariş sorularını hiçbir insan
+                müdahalesi olmadan cevaplayabilen bir çağrı asistanı olarak tasarlandı.
+            </p>
+            <p>
+                Platform, telefon altyapısı için Twilio'yu, düşük gecikmeli konuşmadan metne dönüştürme için
+                Deepgram'ı ve sipariş ve ürün vektör depolarına dayanan özel bir RAG motorunu bir araya getiriyor.
+                Tüm görüşme verileri Supabase'de saklanıyor; kişisel veriler (PII) kaydedilmeden önce otomatik olarak
+                maskeleniyor ve böylece veriler GDPR'a uygun şekilde işleniyor.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Platform modülleri</h2>
+            <div class="arch-box">Sesli Yapay Zekâ Platformu
+  ├── Çağrı Asistanı (Twilio + Deepgram STT)
+  │     Telefon hattı üzerinden gerçek zamanlı sesli görüşme
+  ├── RAG Motoru (ai_engine.py)
+  │     Sipariş arama + Ürün bilgi tabanı (vektör gömmeleri)
+  ├── Analiz Modülü
+  │     Destek talebi analizi + PII işleyici + ana PII filtresi
+  ├── Web Sohbet Arayüzü
+  │     Tarayıcıdan erişim için Streamlit tabanlı sohbet arayüzü
+  └── Entegrasyonlar
+        ├── Deepgram (konuşmadan metne)
+        ├── Twilio (ses / SMS)
+        ├── Supabase (veritabanı)
+        └── Helpdesk API (destek talebi senkronizasyonu)</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Temel sayılar</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Entegre platform modülü</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Harici API entegrasyonu (Deepgram, Twilio, Supabase, Helpdesk)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Kişisel veriler veritabanına yazılmadan önce maskeleniyor</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Bilgi tabanı alanı (siparişler + ürünler)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Özellikler</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Gerçek zamanlı sesli asistan</h4>
+                    <p>Gelen telefon aramalarını Twilio karşılıyor; Deepgram konuşmayı gerçek zamanlı olarak metne çeviriyor. Yapay zekâ motoru transkripsiyonu işleyip sesli bir cevap üretiyor; hepsi bir saniyenin altında bir gecikmeyle.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>RAG ile soru-cevap</h4>
+                    <p>Sipariş ve ürün bilgi tabanları yoğun vektör gömmeleri olarak saklanıyor. Müşteri soruları da vektöre çevrilip anlamsal olarak eşleştiriliyor; böylece cevaplar uydurma değil, gerçek bilgiye dayanıyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Kişisel veri maskeleme hattı</h4>
+                    <p>Çok aşamalı bir PII işleyici, herhangi bir veri Supabase'e yazılmadan önce isimleri, telefon numaralarını, adresleri ve sipariş numaralarını bulup maskeliyor. Ana PII filtresi de son bir güvenlik katmanı sağlıyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Görüşme analizi</h4>
+                    <p>Görüşme sonrası analiz modülü, aramanın amacını sınıflandırıyor, önemli bilgileri çıkarıyor ve kalite takibi ile eğilim analizi için yapılandırılmış özetleri veritabanına yazıyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Helpdesk destek talebi senkronizasyonu</h4>
+                    <p>Çözülemeyen aramalar için, tam transkript ve çıkarılan bağlam eklenmiş halde otomatik olarak helpdesk destek talebi açılabiliyor; böylece görüşme sorunsuz şekilde bir müşteri temsilcisine devrediliyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Yedek web sohbeti</h4>
+                    <p>Streamlit tabanlı bir web sohbet arayüzü, aynı yapay zekâ motorunu tarayıcı üzerinden sunuyor. Test için, şirket içi kullanım için ya da sesli yerine yazılı iletişimi tercih eden müşteriler için işe yarıyor.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Veri akışı</h2>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Aşama</th><th>Bileşen</th><th>Çıktı</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1. Gelen arama</td><td>Twilio webhook</td><td>Ses akışı</td></tr>
+                    <tr><td>2. Transkripsiyon</td><td>Deepgram STT</td><td>Ham metin transkripti</td></tr>
+                    <tr><td>3. Kişisel veri maskeleme</td><td>pii_processor.py</td><td>Temizlenmiş metin</td></tr>
+                    <tr><td>4. RAG sorgusu</td><td>ai_engine.py + vektör deposu</td><td>Bilgiye dayalı cevap</td></tr>
+                    <tr><td>5. Cevap</td><td>Twilio TTS</td><td>Arayana sesli cevap</td></tr>
+                    <tr><td>6. Saklama</td><td>Supabase</td><td>Yapılandırılmış görüşme kaydı</td></tr>
+                    <tr><td>7. Analiz</td><td>analyzer.py</td><td>Amaç + varlık özeti</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#work" class="btn">
+                <i class="fas fa-arrow-left"></i> Tüm projeler
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

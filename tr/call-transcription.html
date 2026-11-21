@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Çağrı Transkripsiyonu ve Analizi | Akif Adnan</title>
+    <link rel="alternate" hreflang="en" href="https://akifadnan2003.github.io/call-transcription.html">
+    <link rel="alternate" hreflang="tr" href="https://akifadnan2003.github.io/tr/call-transcription.html">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo"><img src="../logo.png" alt="Akif Adnan logosu"><span>Akif Adnan</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#work">İşler</a></li>
+                <li><a href="index.html#experience">Deneyim</a></li>
+                <li><a href="index.html#contact">İletişim</a></li>
+                <li><a href="../call-transcription.html" hreflang="en" lang="en" class="lang-switch">EN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Çağrı Transkripsiyonu ve Analizi</h1>
+            <p class="subtitle">Deepgram ile konuşmadan metne dönüştürme ve RAG bilgi tabanı entegrasyonu</p>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">Deepgram</span>
+                <span class="tag">Flask</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">SQLAlchemy</span>
+                <span class="tag">RAG</span>
+                <span class="tag">PII maskeleme</span>
+            </div>
+        </div>
+
+        <a href="index.html#work" class="back-link">
+            <i class="fas fa-arrow-left"></i> Projelere dön
+        </a>
+
+        <div class="detail-section">
+            <h2>Genel bakış</h2>
+            <p>
+                Müşteri destek çağrılarını Deepgram konuşmadan metne API'si ile yazıya döken Flask tabanlı bir servis.
+                Her transkript, bir RAG hattı üzerinden ürün ve bilgi tabanı bağlamıyla zenginleştiriliyor ve yapılandırılmış
+                çağrı kayıtları Supabase'e yazılıyor. Herhangi bir veri diske ya da veritabanına yazılmadan önce
+                kişisel veriler (PII) otomatik olarak maskeleniyor.
+            </p>
+            <p>
+                Sistem, erişim kaynağı olarak bir ürün kataloğunu ve bir destek bilgi tabanını kullanıyor.
+                Böylece analiz katmanı her transkriptin yanında ilgili ürün bilgilerini ve destek makalelerini gösterebiliyor;
+                çağrıyı inceleyen destek ekibi gerekli bağlama hemen ulaşabiliyor.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Temel ölçümler</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">RAG bilgi kaynağı (ürün kataloğu + destek makaleleri)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Depolama altyapısı (Supabase bulut + yerel SQLite)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Kayıttan önce maskelenen kişisel veri (ad, telefon, adres)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">REST</div>
+                    <div class="stat-label">Dış sistemlerle entegrasyon için eksiksiz API</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Sistem mimarisi</h2>
+            <div class="arch-box">Çağrı Transkripsiyonu ve Analiz Servisi
+  ├── transcribe.py        Deepgram API istemcisi (STT)
+  ├── app.py               Flask REST API + web arayüzü
+  ├── app_simple.py        Hafif yedek sürüm
+  │
+  ├── RAG bilgi tabanı
+  │     ├── ürün kataloğu CSV        (yapılandırılmış ürün verisi)
+  │     ├── destek makaleleri JSON   (bilgi tabanı içeriği)
+  │     ├── SQLite vektör indeksi    (hızlı yerel erişim)
+  │     └── load_blog.py             (indeks oluşturucu)
+  │
+  ├── Depolama katmanı
+  │     ├── Supabase (birincil — bulut)
+  │     ├── SQLite  (yedek — yerel)
+  │     └── SQLAlchemy ORM
+  │
+  └── Veri koruma
+        └── yazmadan önce PII maskeleme</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Özellikler</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Deepgram STT entegrasyonu</h4>
+                    <p>Ses kayıtları Deepgram API'sine gönderiliyor; API konuşmacılara ayrılmış ve noktalaması yapılmış transkriptler döndürüyor. Entegrasyon hem dosya yükleme hem de akış modunu destekliyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>RAG ile zenginleştirilmiş transkriptler</h4>
+                    <p>Yazıya dökülen metin, ürün kataloğu ve blog bilgi tabanında sorgu olarak kullanılıyor. İlgili kayıtlar transkripte ekleniyor, böylece inceleyen kişi bağlamı hemen görebiliyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>PII maskeleme</h4>
+                    <p>Bir transkript kaydedilmeden önce maskeleme katmanı adları, telefon numaralarını, adresleri ve sipariş numaralarını bulup yer tutucularla değiştiriyor; bu da GDPR uyumluluğunu sağlıyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Çift depolama altyapısı</h4>
+                    <p>Birincil bulut veritabanı olarak SQLAlchemy ORM üzerinden Supabase kullanılıyor. Bir SQLite veritabanı hem yerel yedek hem de vektör indeksi deposu görevi görüyor; böylece servis geliştirme sırasında çevrimdışı da çalışabiliyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>REST API</h4>
+                    <p>Tüm transkripsiyon, erişim ve depolama işlemleri belgelenmiş bir REST API ile sunuluyor. Bu sayede servis başka sistemlerle (örneğin çağrı kayıt platformları, CRM araçları) birlikte kullanılabiliyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>İnceleme için web arayüzü</h4>
+                    <p>Flask ile sunulan bir HTML arayüzü üzerinden destek yöneticileri kayıtlı transkriptlere göz atabiliyor, anahtar kelimeyle arama yapabiliyor ve her çağrı kaydının yanında RAG ile bulunan ürün bağlamını görebiliyor.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Veri akışı</h2>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Adım</th><th>Bileşen</th><th>Çıktı</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1. Ses girişi</td><td>Ses dosyası / kayıt</td><td>Ham ses verisi</td></tr>
+                    <tr><td>2. Transkripsiyon</td><td>Deepgram API</td><td>Konuşmacılara ayrılmış metin</td></tr>
+                    <tr><td>3. PII maskeleme</td><td>pii_processor</td><td>Temizlenmiş transkript</td></tr>
+                    <tr><td>4. RAG sorgusu</td><td>SQLite vektör indeksi</td><td>İlgili ürünler + makaleler</td></tr>
+                    <tr><td>5. Depolama</td><td>Supabase + SQLAlchemy</td><td>Yapılandırılmış çağrı kaydı</td></tr>
+                    <tr><td>6. İnceleme</td><td>Flask web arayüzü / REST API</td><td>Aranabilir transkript arşivi</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#work" class="btn">
+                <i class="fas fa-arrow-left"></i> Tüm projeler
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

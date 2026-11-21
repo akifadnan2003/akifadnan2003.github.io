@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Clickstream Analitiği Paneli | Akif Adnan</title>
+    <link rel="alternate" hreflang="en" href="https://akifadnan2003.github.io/clickstream.html">
+    <link rel="alternate" hreflang="tr" href="https://akifadnan2003.github.io/tr/clickstream.html">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo"><img src="../logo.png" alt="Akif Adnan logosu"><span>Akif Adnan</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#work">İşler</a></li>
+                <li><a href="index.html#experience">Deneyim</a></li>
+                <li><a href="index.html#contact">İletişim</a></li>
+                <li><a href="../clickstream.html" hreflang="en" lang="en" class="lang-switch">EN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Clickstream Analitiği Paneli</h1>
+            <p class="subtitle">Bir online mağazada ziyaretçilerin ne yaptığı, ilk sayfa görüntülemesinden siparişe kadar</p>
+            <div>
+                <span class="tag">Clickstream</span>
+                <span class="tag">BigQuery</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Cloud Run</span>
+            </div>
+        </div>
+
+        <a href="index.html#work" class="back-link">
+            <i class="fas fa-arrow-left"></i> Projelere dön
+        </a>
+
+        <div class="detail-section">
+            <h2>Genel bakış</h2>
+            <p>Bir online mağaza her tıklamayı kaydeder: görüntülenen sayfalar, aramalar, filtreler, menü ve banner tıklamaları, sepete eklenen ürünler. Bu olaylar tek başına sadece gürültüdür. Bu panel onları ürün, satış ve pazarlama ekiplerinin üzerinde işlem yapabileceği cevaplara dönüştürüyor: ziyaretçiler nerede ayrılıyor, neyi arayıp bulamıyor ve hangi ürünlere bakılıp satın alınmıyor.</p>
+            <p>Paneli bir ekip arkadaşımla birlikte geliştirdim. Benim payım, raporlama tablolarını güncel tutan veri hattı, tek oturum açma (SSO), yayına alma, Türkçe ve İngilizce arayüz ve ekrandaki sayıların satış kayıtlarıyla tutup tutmadığını kontrol etmekti.</p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Neler gösteriyor</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Günlük satış hunisi</h4>
+                    <p>Ürün sayfasından sepete, ödeme adımına ve siparişe kaç ziyaretçinin geçtiği, gün gün. Böylece bir düşüş, olduğu günün ertesi sabahı görünüyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Sonuç vermeyen aramalar</h4>
+                    <p>Hiç sonuç döndürmeyen arama terimleri. Her biri, insanların istediği ama sitede bulamadığı bir ürün demek.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Boşa çıkan filtreler</h4>
+                    <p>Boş bir sayfayla biten filtre kombinasyonları, markaya göre ayrılmış halde. Böylece katalog ve filtreler düzeltilebiliyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Bakılan ama alınmayan ürünler</h4>
+                    <p>Çok görüntülenip az sipariş alan ürünler. Fiyatı, fotoğrafları ya da stoğu kontrol etmek için bir başlangıç noktası.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Öneriler ve çapraz satış</h4>
+                    <p>Önerilen ürünlerin ne sıklıkla tıklanıp satın alındığı. Böylece önerilerin sayfada yer almayı hak edip etmediği netleşiyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Misafir görünen kurumsal alıcılar</h4>
+                    <p>Kurumsal müşteri gibi gezinip sipariş veren ama öyle kayıtlı olmayan ziyaretçiler. Satış ekibinin takip edebileceği bir liste.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Nasıl çalışıyor</h2>
+            <div class="arch-box">Site olayları (clickstream) + satış kayıtları
+  └── BigQuery'de raporlama tabloları, her gece zamanlanmış SQL ile yeniden oluşturuluyor
+
+Web uygulaması (Next.js, TypeScript, Cloud Run)
+  ├── Sadece raporlama tablolarını okuyor, ham olayları hiç okumuyor
+  ├── Her sayfada tarih, mağaza ve ülke filtreleri
+  ├── Türkçe / İngilizce arayüz
+  └── Şirket girişi üzerinden tek oturum açma</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Neler öğrendim</h2>
+            <p>Boş bir grafik genelde grafik sorunu değil, veri sorunudur. Panel birkaç gün boyunca boş kaldığında olaylar hâlâ yerindeydi; raporlama tablolarını oluşturan gece görevi, hata veren tek bir adımda durmuştu. O görevi düzeltmek, herhangi bir yeni özellikten daha önemliydi.</p>
+            <p>Bir sayı panele girmeden önce, tekrarlanan tıklamalar ve botlar dahil, tam olarak nasıl sayıldığını yazmak gerekiyor. Paneli kullanacak ekiplerle yapılan bu konuşma işin yarısı.</p>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#work" class="btn">
+                <i class="fas fa-arrow-left"></i> Tüm projeler
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Akif Adnan</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>IVR Ses Üretim Sistemi | Akif Adnan</title>
+    <link rel="alternate" hreflang="en" href="https://akifadnan2003.github.io/tts-system.html">
+    <link rel="alternate" hreflang="tr" href="https://akifadnan2003.github.io/tr/tts-system.html">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo"><img src="../logo.png" alt="Akif Adnan logosu"><span>Akif Adnan</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#work">İşler</a></li>
+                <li><a href="index.html#experience">Deneyim</a></li>
+                <li><a href="index.html#contact">İletişim</a></li>
+                <li><a href="../tts-system.html" hreflang="en" lang="en" class="lang-switch">EN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>IVR Ses Üretim Sistemi</h1>
+            <p class="subtitle">Google Cloud TTS ile çok dilli çağrı merkezi karşılama anonslarını otomatik üreten araç</p>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">Google Cloud TTS</span>
+                <span class="tag">Çok dilli</span>
+                <span class="tag">IVR</span>
+                <span class="tag">MP3 / WAV</span>
+            </div>
+        </div>
+
+        <a href="index.html#work" class="back-link">
+            <i class="fas fa-arrow-left"></i> Projelere dön
+        </a>
+
+        <div class="detail-section">
+            <h2>Genel bakış</h2>
+            <p>
+                Birden fazla ülkede hizmet veren bir çağrı merkezi için tüm IVR (Etkileşimli Sesli Yanıt) karşılama
+                ses dosyalarını kodla üreten bir Python uygulaması. Her pazar için anonsları seslendirme sanatçılarıyla
+                elle kaydetmek yerine, sistem metin şablonlarından Google Cloud Text-to-Speech API'si ile
+                doğal sesli ve yerel dile uygun ses dosyaları üretiyor.
+            </p>
+            <p>
+                Üretici 20'den fazla ülke alan adını kapsıyor; her biri için kadın ve erkek ses seçenekleri ve
+                yerel dile uygun telaffuz gerekiyor. Farklı telefon sistemlerinin biçim gereksinimlerini karşılamak için
+                çıktı dosyaları hem MP3 hem de WAV olarak üretiliyor.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Temel ölçümler</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Ülkeye özel alan adı için üretilen karşılama anonsu</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">Kapsanan dil / yerel ayar</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Alan adı başına ses (erkek + kadın)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Çıktı biçimi (MP3 + WAV)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Sistem tasarımı</h2>
+            <div class="arch-box">IVR ses üretim hattı
+  ├── app.py
+  │     Alan adı ayarını oku → SSML metnini oluştur → Cloud TTS'i çağır
+  │     → MP3 (varsayılan) + WAV (telefon sistemleri) yaz
+  ├── Alan adı ayarları
+  │     Ülkeye göre yerel ayar, dil kodu, ses adı, cinsiyet
+  └── Çıktılar
+        WAV dosyaları — her yerel ayar + cinsiyet için bir tane
+        MP3 dosyaları — web'de çalınabilen sürümler
+
+Yerel ayara göre seçilen Google Cloud TTS sesleri:
+  de-DE  → Wavenet-B (erkek) / Wavenet-A (kadın)
+  en-US  → Wavenet-D (erkek) / Wavenet-F (kadın)
+  fr-FR  → Wavenet-B (erkek) / Wavenet-A (kadın)
+  ... (toplam 17 yerel ayar)</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Özellikler</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Yerel dile uygun telaffuz</h4>
+                    <p>Her alan adı, belirli bir BCP-47 dil etiketiyle eşleşiyor (örneğin Belçika Fransızcası için fr-BE). Böylece Cloud TTS motoru genel bir varsayılan yerine doğru bölgesel aksanı ve ses kurallarını kullanıyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Kadın ve erkek sesler</h4>
+                    <p>Her ülke alan adı için hem erkek hem kadın sesli bir karşılama anonsu üretiliyor. Telefon sistemi yöneticileri, üreticiyi yeniden çalıştırmadan her pazar için istedikleri sesi seçebiliyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>İki biçimde çıktı</h4>
+                    <p>Ses, genel kullanım için MP3, sıkıştırılmamış ses isteyen telefon sistemleri için WAV (PCM) olarak dışa aktarılıyor. İki biçim de tek bir API çağrı döngüsünde üretiliyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Toplu üretim</h4>
+                    <p>Betik tek seferde çalıştırıldığında tüm alan adı, dil ve cinsiyet kombinasyonlarını sırayla üretiyor; alan adları arasında elle bir adım gerekmeden anonsların tamamı hazırlanıyor.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Dil kapsamı</h2>
+            <p>Üretici; Batı, Orta ve Kuzey Avrupa ile Kuzey Amerika'dan 17 yerel ayarı destekliyor. Her yerel ayar belirli bir BCP-47 dil etiketiyle eşleşiyor. Başlıca Batı Avrupa dillerinin (Almanca, İngilizce, Fransızca, İtalyanca, İspanyolca, Felemenkçe, Portekizce, Lehçe, İsveççe) yanı sıra bazı bölgesel varyantlar da kapsanıyor.</p>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Dil ailesi</th><th>Kapsanan varyantlar</th><th>Üretilen sesler</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Germen</td><td>Almanca, Felemenkçe, İsveççe, Norveççe, İngilizce (ABD/Birleşik Krallık)</td><td>Her varyant için erkek + kadın</td></tr>
+                    <tr><td>Roman</td><td>Fransızca, İtalyanca, İspanyolca, Portekizce, Rumence</td><td>Her varyant için erkek + kadın</td></tr>
+                    <tr><td>Slav</td><td>Lehçe, Çekçe, Rusça</td><td>Her varyant için erkek + kadın</td></tr>
+                    <tr><td>Diğer</td><td>Fince</td><td>Her varyant için erkek + kadın</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#work" class="btn">
+                <i class="fas fa-arrow-left"></i> Tüm projeler
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

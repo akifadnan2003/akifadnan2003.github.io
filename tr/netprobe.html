@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>NetProbe | Akif Adnan</title>
+    <link rel="alternate" hreflang="en" href="https://akifadnan2003.github.io/netprobe.html">
+    <link rel="alternate" hreflang="tr" href="https://akifadnan2003.github.io/tr/netprobe.html">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo"><img src="../logo.png" alt="Akif Adnan logosu"><span>Akif Adnan</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#work">İşler</a></li>
+                <li><a href="index.html#experience">Deneyim</a></li>
+                <li><a href="index.html#contact">İletişim</a></li>
+                <li><a href="../netprobe.html" hreflang="en" lang="en" class="lang-switch">EN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>NetProbe</h1>
+            <p class="subtitle">UDP tabanlı güvenilir dosya aktarımı ve ağ performansı analiz platformu</p>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">UDP soketleri</span>
+                <span class="tag">Özel protokol</span>
+                <span class="tag">Flask</span>
+                <span class="tag">Matplotlib</span>
+                <span class="tag">Şifreleme</span>
+                <span class="tag">PCAP</span>
+            </div>
+            <div style="margin-top:1.5rem;">
+                <a href="https://github.com/akifadnan2003/Net-Probe" target="_blank" class="btn" style="margin-right:1rem;">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <a href="index.html#work" class="back-link">
+            <i class="fas fa-arrow-left"></i> Projelere dön
+        </a>
+
+        <div class="detail-section">
+            <h2>Genel bakış</h2>
+            <p>
+                NetProbe, doğrudan UDP soketleri üzerine kurulmuş, tamamen güvenilir bir dosya aktarım protokolü. TCP ya da hazır kütüphane kullanılmıyor.
+                Tüm güvenilirlik mekanizmaları (sıra numaraları, ACK'ler, zaman aşımları, yeniden gönderim, kopya paket tespiti ve MD5 bütünlük kontrolü)
+                tamamen uygulama katmanında yazıldı.
+            </p>
+            <p>
+                Ayrı bir kayıt ve analiz modülü her ağ olayını kaydediyor ve performans grafikleri üretiyor.
+                Projede gerçek zamanlı izleme için bir Flask web paneli ve birkaç ek özellik var:
+                şifreleme, sıkıştırma, PCAP dışa aktarımı, çoklu istemci desteği ve TCP ile UDP karşılaştırması.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Özel protokol tasarımı</h2>
+            <p>Protokolün durum makinesi dört paket türünden oluşuyor:</p>
+            <div class="arch-box">Paket biçimleri (tümü big-endian):
+  DATA    : type(1B) | seq(4B) | total(4B) | payload_len(2B) | crc32(4B) | payload
+  ACK     : type(1B) | ack_num(4B) | crc32(4B)
+  FIN     : type(1B) | crc32(4B) | md5_hex(32B ASCII)
+  FIN_ACK : type(1B) | status(1B)   (1=OK / 0=FAIL)</div>
+            <p style="margin-top:1rem;">
+                Her paketteki CRC32 sağlama toplamı, aktarım sırasında oluşan bozulmaları yakalıyor.
+                FIN paketi tüm dosyanın MD5 özetini taşıyor; sunucu bütünlüğü doğruladıktan sonra başarılı/başarısız durumunu içeren bir FIN_ACK gönderiyor.
+                Ayarlanabilir yeniden gönderimli stop-and-wait ARQ sayesinde hiçbir paket fark edilmeden kaybolmuyor.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Özellikler</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>UDP üzerinden güvenilir aktarım</h4>
+                    <p>Sıra numaraları, ACK'ler, ayarlanabilir zaman aşımları ve en fazla 5 yeniden denemeyle stop-and-wait ARQ. Kopya paket tespiti, verinin iki kez yazılmasını önlüyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Dosya bütünlüğü</h4>
+                    <p>Paket başına CRC32 sağlama toplamı ve uçtan uca MD5 özet doğrulaması. Özet eşleşmezse sunucu dosyayı reddediyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Şifreleme ve sıkıştırma</h4>
+                    <p>Gönderimden önce XOR tabanlı şifreleme ve zlib sıkıştırması uygulanıyor. Her aktarım için CLI parametreleriyle ayarlanabiliyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Çoklu istemcili sunucu</h4>
+                    <p>Birden fazla istemciden gelen eş zamanlı aktarımlar thread'lerle yönetiliyor. Her istemcinin ayrı bir alım tamponu ve kayıt dosyası var.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>PCAP dışa aktarımı</h4>
+                    <p>Tüm paketler, çevrimdışı inceleme ve hata ayıklama için Wireshark ile açılabilen bir .pcap dosyasına yazılıyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Web paneli</h4>
+                    <p>Aktarım ilerlemesini gerçek zamanlı göstermek için Server-Sent Events kullanan bir Flask uygulaması. Dosya yükleme, sunucuyu başlatma/durdurma ve grafikleri görüntüleme tarayıcıdan yapılabiliyor.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>TCP ve UDP karşılaştırması</h2>
+            <p>
+                Ayrı bir karşılaştırma modülü aynı dosya aktarımlarını hem TCP hem de özel UDP protokolüyle çalıştırıyor;
+                32 KB ile 5 MB arasındaki dosya boyutlarında aktarım hızını, aktarım süresini ve yeniden gönderim yükünü ölçüyor.
+            </p>
+            <img src="../tcp_vs_udp_comparison.png" alt="TCP ve UDP karşılaştırma grafiği" class="chart-img">
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>Dosya boyutu</th>
+                        <th>UDP aktarım süresi</th>
+                        <th>TCP aktarım süresi</th>
+                        <th>Gözlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>32 KB</td><td>~0.02s</td><td>~0.01s</td><td>Çok küçük dosyalarda TCP daha hızlı</td></tr>
+                    <tr><td>256 KB</td><td>~0.08s</td><td>~0.09s</td><td>Benzer</td></tr>
+                    <tr><td>1 MB</td><td>~0.30s</td><td>~0.32s</td><td>UDP yakın sonuç veriyor</td></tr>
+                    <tr><td>5 MB</td><td>~1.4s</td><td>~1.5s</td><td>Tıkanıklık olmadığında UDP daha hızlı</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section">
+            <h2>Deney senaryoları</h2>
+            <table class="result-table">
+                <thead>
+                    <tr><th>Senaryo</th><th>Açıklama</th><th>Değişken</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Farklı dosya boyutları (kayıpsız)</td><td>32 KB → 5 MB</td></tr>
+                    <tr><td>2</td><td>Farklı paket kaybı oranları</td><td>0% → 20% simüle edilmiş kayıp</td></tr>
+                    <tr><td>3</td><td>Farklı parça boyutları</td><td>256 B → 4096 B</td></tr>
+                    <tr><td>4</td><td>Çoklu istemci yük testi</td><td>1 → 4 eş zamanlı istemci</td></tr>
+                    <tr><td>Ek</td><td>Kayan pencere ile aktarım hızı</td><td>Pencere boyutu 1 → 8</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="https://github.com/akifadnan2003/Net-Probe" target="_blank" class="btn" style="margin-right:1rem;">
+                <i class="fab fa-github"></i> GitHub'da incele
+            </a>
+            <a href="index.html#work" class="btn">
+                <i class="fas fa-arrow-left"></i> Tüm projeler
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

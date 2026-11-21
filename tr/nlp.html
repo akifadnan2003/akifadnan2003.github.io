@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Türkçe NLP | Akif Adnan</title>
+    <link rel="alternate" hreflang="en" href="https://akifadnan2003.github.io/nlp.html">
+    <link rel="alternate" hreflang="tr" href="https://akifadnan2003.github.io/tr/nlp.html">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo"><img src="../logo.png" alt="Akif Adnan logosu"><span>Akif Adnan</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#work">İşler</a></li>
+                <li><a href="index.html#experience">Deneyim</a></li>
+                <li><a href="index.html#contact">İletişim</a></li>
+                <li><a href="../nlp.html" hreflang="en" lang="en" class="lang-switch">EN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Türkçe NLP</h1>
+            <p class="subtitle">Koşullu Rastgele Alanlar (CRF) ile Türkçe için biçimbilimsel belirsizlik giderme</p>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">CRF</span>
+                <span class="tag">sklearn-crfsuite</span>
+                <span class="tag">CoNLL-U</span>
+                <span class="tag">UD Treebank</span>
+                <span class="tag">Flask</span>
+                <span class="tag">NLP</span>
+            </div>
+        </div>
+
+        <a href="index.html#work" class="back-link">
+            <i class="fas fa-arrow-left"></i> Projelere dön
+        </a>
+
+        <div class="detail-section">
+            <h2>Genel bakış</h2>
+            <p>
+                Türkçe sondan eklemeli bir dildir; tek bir sözcük biçimi aynı anda birçok biçimbilimsel etiket taşıyabilir.
+                Bu yüzden sözcük türü etiketleme, İngilizceye göre belirgin şekilde daha zordur. Bu projede
+                <strong>UD Turkish-IMST Treebank</strong> üzerinde bir <strong>Koşullu Rastgele Alanlar (CRF)</strong>
+                dizi modeli eğitiyorum; model, cümledeki her token için Universal POS etiketini tahmin ediyor.
+            </p>
+            <p>
+                Model, resmî test bölümünde <span class="highlight">90.93% doğruluk</span> ve <span class="highlight">90.80% ağırlıklı F1</span>
+                değerine ulaşıyor. Bir Flask web uygulamasıyla canlı tahmin yapılabiliyor: herhangi bir Türkçe cümle girildiğinde
+                her token için POS tahmini ve CoNLL-U çıktısı gösteriliyor.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Temel ölçümler</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="value">90.93%</div>
+                    <div class="label">Test doğruluğu</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">90.80%</div>
+                    <div class="label">Ağırlıklı F1</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">3,435</div>
+                    <div class="label">Eğitim cümlesi</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value">1,100</div>
+                    <div class="label">Test cümlesi</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>İşlem hattı</h2>
+            <div class="pipeline-box">
+                <div class="pipe-step">CoNLL-U<br>veri yükleme</div>
+                <span class="pipe-arrow">→</span>
+                <div class="pipe-step">Öznitelik<br>çıkarımı</div>
+                <span class="pipe-arrow">→</span>
+                <div class="pipe-step">CRF<br>eğitimi</div>
+                <span class="pipe-arrow">→</span>
+                <div class="pipe-step">Değerlendirme<br>&amp; ölçümler</div>
+                <span class="pipe-arrow">→</span>
+                <div class="pipe-step">Flask<br>web demosu</div>
+            </div>
+            <p>
+                CRF'ye verilen öznitelikler arasında yüzey biçimi, karakter n-gram'ları, ek örüntüleri, çevredeki token'lar
+                ve treebank'teki biçimbilimsel öznitelik dizgeleri var. Model belirsizliği dizi düzeyinde çözmeyi öğreniyor;
+                her sözcüğe tek başına karar vermek yerine komşu token'lardan gelen bağlamı kullanıyor.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Sınıf bazında sonuçlar — Test kümesi (1,100 cümle)</h2>
+            <table class="result-table">
+                <thead>
+                    <tr><th>POS etiketi</th><th>Kesinlik</th><th>Duyarlılık</th><th>F1</th><th>Örnek sayısı</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>PUNCT</td> <td class="good">99.9%</td><td class="good">100.0%</td><td class="good">99.95</td><td>1,933</td></tr>
+                    <tr><td>CCONJ</td> <td class="good">96.4%</td><td class="good">96.4%</td> <td class="good">96.4</td> <td>356</td></tr>
+                    <tr><td>AUX</td>   <td class="good">94.4%</td><td class="good">96.2%</td> <td class="good">95.3</td> <td>211</td></tr>
+                    <tr><td>VERB</td>  <td class="good">93.8%</td><td class="good">94.1%</td> <td class="good">93.9</td> <td>1,928</td></tr>
+                    <tr><td>PRON</td>  <td class="good">94.5%</td><td class="ok">92.9%</td>   <td class="good">93.7</td> <td>464</td></tr>
+                    <tr><td>ADP</td>   <td class="good">95.6%</td><td class="ok">90.5%</td>   <td class="good">92.9</td> <td>357</td></tr>
+                    <tr><td>DET</td>   <td class="ok">84.2%</td>  <td class="good">96.2%</td> <td class="ok">89.8</td>   <td>344</td></tr>
+                    <tr><td>NOUN</td>  <td class="ok">84.3%</td>  <td class="good">92.5%</td> <td class="ok">88.2</td>   <td>2,430</td></tr>
+                    <tr><td>ADV</td>   <td class="ok">88.8%</td>  <td class="ok">77.0%</td>   <td class="ok">82.5</td>   <td>461</td></tr>
+                    <tr><td>ADJ</td>   <td class="ok">84.9%</td>  <td class="ok">75.8%</td>   <td class="ok">80.1</td>   <td>960</td></tr>
+                    <tr><td>NUM</td>   <td class="ok">90.7%</td>  <td class="low">71.4%</td>  <td class="ok">79.9</td>   <td>192</td></tr>
+                    <tr><td>PROPN</td> <td class="ok">83.3%</td>  <td class="low">70.9%</td>  <td class="ok">76.6</td>   <td>374</td></tr>
+                </tbody>
+            </table>
+            <p>
+                Noktalama işaretleri, bağlaçlar ve yardımcı fiiller neredeyse hatasız ayırt ediliyor.
+                En zor sınıflar PROPN ve NUM: Türkçede özel adlar cins adlarla aynı yüzey biçimini paylaşabiliyor,
+                sayılar da sıfat ya da belirleyici olarak kullanılabiliyor.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Kendi etiketlediğim verideki sonuçlar</h2>
+            <p>
+                Üç alandan (genel, haber ve akademik) 20 ek cümleyi CoNLL-U biçiminde elle etiketledim,
+                ardından model tahminlerini bunlarla karşılaştırdım.
+            </p>
+            <table class="result-table">
+                <thead>
+                    <tr><th>POS etiketi</th><th>Kesinlik</th><th>Duyarlılık</th><th>F1</th><th>Örnek sayısı</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>PUNCT</td><td class="good">100%</td><td class="good">100%</td><td class="good">100.0</td><td>25</td></tr>
+                    <tr><td>VERB</td> <td class="good">93.8%</td><td class="good">100%</td><td class="good">96.8</td> <td>30</td></tr>
+                    <tr><td>NOUN</td> <td class="ok">85.7%</td>  <td class="ok">82.8%</td>  <td class="ok">84.2</td>  <td>58</td></tr>
+                    <tr><td>ADJ</td>  <td class="low">63.6%</td> <td class="ok">77.8%</td>  <td class="ok">70.0</td>  <td>18</td></tr>
+                    <tr><td>ADV</td>  <td class="good">100%</td> <td class="low">46.2%</td> <td class="ok">63.2</td>  <td>13</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section">
+            <h2>Veri kümesi</h2>
+            <p>
+                <strong>UD Turkish-IMST Treebank</strong>, Universal Dependencies projesinin bir parçası. Haber ve edebî metinlerden
+                alınmış Türkçe cümleler için CoNLL-U biçiminde ayrıntılı biçimbilimsel etiketler sunuyor: UPOS etiketleri,
+                biçimbilimsel öznitelikler, lemmalar ve bağımlılık ilişkileri.
+            </p>
+            <table class="result-table">
+                <thead><tr><th>Bölüm</th><th>Cümle</th><th>Token</th></tr></thead>
+                <tbody>
+                    <tr><td>Eğitim</td><td>3,435</td><td>~40,000</td></tr>
+                    <tr><td>Doğrulama</td>  <td>1,247</td><td>~16,000</td></tr>
+                    <tr><td>Test</td> <td>1,100</td><td>~14,000</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#work" class="btn">
+                <i class="fas fa-arrow-left"></i> Tüm projeler
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

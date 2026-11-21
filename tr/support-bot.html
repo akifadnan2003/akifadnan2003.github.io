@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Destek Otomasyon Botu | Akif Adnan</title>
+    <link rel="alternate" hreflang="en" href="https://akifadnan2003.github.io/support-bot.html">
+    <link rel="alternate" hreflang="tr" href="https://akifadnan2003.github.io/tr/support-bot.html">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-logo"><img src="../logo.png" alt="Akif Adnan logosu"><span>Akif Adnan</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#work">İşler</a></li>
+                <li><a href="index.html#experience">Deneyim</a></li>
+                <li><a href="index.html#contact">İletişim</a></li>
+                <li><a href="../support-bot.html" hreflang="en" lang="en" class="lang-switch">EN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-hero">
+            <h1>Destek Otomasyon Botu</h1>
+            <p class="subtitle">Destek taleplerini yapay zekâ ile sınıflandıran, yönlendiren ve otomatik çözen sistem</p>
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">Google Gemini</span>
+                <span class="tag">Claude AI</span>
+                <span class="tag">BigQuery</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">RAG</span>
+                <span class="tag">Docker</span>
+            </div>
+        </div>
+
+        <a href="index.html#work" class="back-link">
+            <i class="fas fa-arrow-left"></i> Projelere dön
+        </a>
+
+        <div class="detail-section">
+            <h2>Genel bakış</h2>
+            <p>
+                Gelen müşteri destek taleplerini otomatik olarak sınıflandırıp yönlendiren ve çözen, uçtan uca bir
+                yapay zekâ destek otomasyon platformu. Böylece destek taleplerini elle işleme ihtiyacı ortadan kalkıyor.
+                Sistem bir helpdesk platformuna REST API üzerinden doğrudan bağlanıyor ve birçok talep türünü hiç
+                el değmeden çözebiliyor.
+            </p>
+            <p>
+                Botun temelinde bir Retrieval-Augmented Generation (RAG) hattı var: geçmiş destek talepleri ve
+                dokümantasyondan oluşan bir vektör bilgi tabanını sorgulayarak bağlama uygun ve doğru cevaplar
+                üretiyor. İki LLM desteği (Google Gemini ve Claude), bir model çalışmadığında diğerine geçmeye ve
+                A/B karşılaştırması yapmaya imkân veriyor. Tüm destek talebi verileri ve metrikler, uzun vadeli
+                analiz için BigQuery'ye aktarılıyor.
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>Temel sayılar</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Talep türüne özel işleyici modülü</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Yedekli çalışan LLM sağlayıcısı (Gemini + Claude)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">RAG</div>
+                    <div class="stat-label">Cevapları bilgiye dayandıran vektör bilgi tabanı</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Standart destek taleplerinin çözümünde elle yapılan adım</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Sistem mimarisi</h2>
+            <div class="arch-box">FastAPI API katmanı
+  └── Anlamsal Yönlendirici (gömmelerle talep türü sınıflandırma)
+        ├── İşleyici: Sipariş Bilgisi  → sorgu + cevap
+        ├── İşleyici: RMA / İade       → politika kontrolü + taslak
+        ├── İşleyici: Gönderi Takibi   → kargo API'si + cevap
+        ├── İşleyici: Teknik Destek    → RAG bilgi tabanı
+        ├── İşleyici: Uyumluluk        → ürün veritabanı sorgusu
+        ├── İşleyici: Üst Seviyeye Aktarma → müşteri temsilcisine yönlendirme
+        └── İşleyici: Varsayılan       → Gemini / Claude serbest cevap
+
+Servisler: GeminiClient | HelpdeskClient | BigQueryClient | LocalRAG
+Veri:      vektör gömme deposu | temizlenmiş geçmiş destek talepleri</div>
+        </div>
+
+        <div class="detail-section">
+            <h2>Özellikler</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Anlamsal yönlendirme</h4>
+                    <p>Gelen destek talebinin metni vektöre çevriliyor ve kosinüs benzerliğiyle talep türü kümeleriyle eşleştiriliyor. Böylece her talep, kurala dayalı anahtar kelime eşleştirmesi olmadan en uygun özel işleyiciye gidiyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>RAG bilgi tabanı</h4>
+                    <p>Geçmiş destek talepleri ve dokümantasyon parçalarından oluşturulan yerel bir vektör deposu, kaynağı gösterilebilen ve bilgiye dayalı cevaplar sağlıyor. Yeni destek talepleri depoyu sürekli zenginleştiriyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>RMA ve iade işlemleri</h4>
+                    <p>Otomatik RMA akışı, iadenin uygun olup olmadığını iade politikası kurallarına göre kontrol ediyor, onay ya da ret cevabını taslak olarak hazırlıyor ve talebin durumunu güncelliyor. Standart durumlarda insan müdahalesi gerekmiyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Üst seviyeye aktarma motoru</h4>
+                    <p>Ayarlanabilir kurallar, yüksek öncelik işaretlerini (VIP müşteriler, tekrarlanan başvurular, olumsuz duygu) tespit ediyor ve talepleri tüm bağlamıyla birlikte doğru destek grubuna yönlendiriyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>BigQuery analizi</h4>
+                    <p>Her çözüm olayı, işleyici kararı ve LLM çağrısı BigQuery'ye kaydediliyor. Bu sayede çözüm oranları, ortalama işlem süresi ve üst seviyeye aktarma sıklığı için paneller hazırlanabiliyor.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Docker ile yayına alma</h4>
+                    <p>Ortam değişkenleriyle yapılandırılan, container içinde çalışan bir FastAPI servisi. Tek bir docker-compose komutuyla herhangi bir bulut sağlayıcısına kurulabiliyor.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>İşleyicilerin kapsamı</h2>
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>İşleyici</th>
+                        <th>Destek talebi türü</th>
+                        <th>Çözüm yöntemi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Sipariş Bilgisi</td><td>Sipariş durumu / teslimat</td><td>Sipariş API sorgusu → otomatik cevap</td></tr>
+                    <tr><td>RMA / İade</td><td>İade / geri ödeme talepleri</td><td>Politika kontrolü → taslak + gönderim</td></tr>
+                    <tr><td>Takip</td><td>Gönderi takibi</td><td>Kargo API'si → durum güncellemesi</td></tr>
+                    <tr><td>Teknik Destek</td><td>Ürün sorunları / arızalar</td><td>RAG → bilgi tabanına dayalı cevap</td></tr>
+                    <tr><td>Uyumluluk</td><td>Ürün uyumluluğu soruları</td><td>Ürün veritabanı → uyumluluk kontrolü</td></tr>
+                    <tr><td>Üst Seviyeye Aktarma</td><td>Karmaşık / VIP / tekrarlanan</td><td>Müşteri temsilcisi grubuna yönlendirme</td></tr>
+                    <tr><td>Varsayılan</td><td>Diğer tüm talep türleri</td><td>Gemini / Claude serbest cevap</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="detail-section" style="text-align:center; padding-bottom:4rem;">
+            <a href="index.html#work" class="btn">
+                <i class="fas fa-arrow-left"></i> Tüm projeler
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Akif Adnan. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

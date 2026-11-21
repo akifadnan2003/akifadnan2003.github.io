@@ -258,8 +258,9 @@
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {
       var email = copyBtn.getAttribute('data-email');
-      var done = function () { copyStatus.textContent = 'Copied to clipboard'; setTimeout(function () { copyStatus.textContent = ''; }, 2400); };
-      var fail = function () { copyStatus.textContent = 'Could not copy. The address is ' + email; };
+      var tr = document.documentElement.lang === 'tr';
+      var done = function () { copyStatus.textContent = tr ? 'Kopyalandı' : 'Copied to clipboard'; setTimeout(function () { copyStatus.textContent = ''; }, 2400); };
+      var fail = function () { copyStatus.textContent = (tr ? 'Kopyalanamadı. Adres: ' : 'Could not copy. The address is ') + email; };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(email).then(done, fail);
       } else {

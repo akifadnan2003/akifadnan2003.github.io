@@ -163,6 +163,9 @@ button { font: inherit; color: inherit; }
 }
 .nav__links a:hover { color: var(--ink); }
 .nav__links a:hover::after { transform: scaleX(1); transform-origin: left; }
+.nav__links a.lang-switch { border: 1px solid currentColor; border-radius: 4px; padding: 1px 6px; opacity: .8; }
+.nav__links a.lang-switch::after { display: none; }
+.nav__links a.lang-switch:hover { opacity: 1; }
 @media (max-width: 560px) {
   .nav__brand span { display: none; }
   .nav__links { gap: 14px; }
